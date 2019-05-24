@@ -6,6 +6,7 @@ import './asset/assetPage.html';
 import './asset/assetPage.js';
 import './asset/assetList.html';
 import './asset/assetList.js';
+import './asset/assetItem.html';
 
 import './fundding/fundingPage.html';
 import './fundding/fundingPage.js';

@@ -1,9 +1,10 @@
 <template name="assetList">
     <h2>에셋 목록</h2>
-    <ul>
-        <li>
-        </li>
-    </ul>
+
+    {{#each list}}
+        {{>assetItem}}
+    {{/each}}
+
     <div align="center">
         <button name="more" class="btn btn-primary">
             <i class="glyphicon glyphicon-arrow-down"></i> 더보기

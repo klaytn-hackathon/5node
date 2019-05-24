@@ -1,30 +1,27 @@
 import {Template} from "meteor/templating";
+import "/imports/collections";//추가
 
 
 Template.assetList.helpers({
-    title() {
-        return "에셋 목록"
+    list(){
+        return Content.find({},{});
     }
+});
+
+
+Template.assetList.events({
+
 });
 
 
 Template.assetList.onRendered(function() {
 
-    // Sparkline
-    console.log("에셋리스트 안녕");
 })
-
-// Template.assetList.events({
-//     // 'click button'(event, instance) {
-//     //   // increment the counter when button is clicked
-//     //   instance.counter.set(instance.counter.get() + 1);
-//     // },
-// });
 
 
 Template.assetList.onCreated(function () {
-    console.log("에셋");
-
+    console.log("에셋 목록");
+    this.subscribe("contentList");
 });
 
 Template.assetList.onRendered(function () {
