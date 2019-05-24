@@ -1,0 +1,16 @@
+<template name="topnavbar">
+    <div class="topnavbar-wrapper">
+
+        <ul class="nav navbar-nav mr-auto flex-column flex-lg-row">
+            <li class="nav-item {{isActiveRoute regex='widgets'}}">
+                <a class="nav-link" href="{{pathFor 'asset'}}">에셋</a>
+            </li>
+            <li class="nav-item {{isActiveRoute regex='widgets'}}">
+                <a class="nav-link" href="{{pathFor 'funding'}}">펀딩</a>
+            </li>
+            <li class="nav-item {{isActiveRoute regex='widgets'}}">
+                <a class="nav-link" href="{{pathFor 'mypage'}}">마이페이지</a>
+            </li>
+        </ul> <!-- 로그인 버튼 추가 -->
+    </div>
+</template>

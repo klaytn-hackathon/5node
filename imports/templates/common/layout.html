@@ -1,0 +1,15 @@
+<template name="layout">
+      <div class="wrapper">
+         <!-- top navbar-->
+          {{> topnavbar }}
+
+         <!-- Main section-->
+         <div class="section-container">
+            <!-- Page content-->
+            <div class="content-wrapper">
+               {{> Template.dynamic template=content }}
+            </div>
+         </div>
+         <!-- Page footer-->
+      </div>
+</template>
