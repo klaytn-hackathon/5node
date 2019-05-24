@@ -1,0 +1,21 @@
+<template name="topnavbar">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="stock-nav">
+            <a class="navbar-brand" href="#">SIGHT STOCK</a>
+
+            <ul>
+                <li class="nav-item {{isActiveRoute regex='widgets'}}">
+                    <a href="{{pathFor 'asset'}}">에셋</a>
+                </li>
+                <li class="breadcrumb-item {{isActiveRoute regex='widgets'}}">
+                    <a href="{{pathFor 'funding'}}">펀딩</a>
+                </li>
+                <li class="breadcrumb-item {{isActiveRoute regex='widgets'}}">
+                    <a href="{{pathFor 'mypage'}}">마이페이지</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</template>

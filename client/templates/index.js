@@ -1,5 +1,6 @@
 import './common/layout.html';
 import './common/topnavbar.html';
+import './common/topnavbar.css';
 
 import './asset/assetPage.html';
 import './asset/assetPage.js';

@@ -15,15 +15,12 @@ Template.asset.helpers({
 // });
 
 Template.asset.onRendered(function() {
-
-    // Sparkline
-    console.log("에셋페이지 안녕");
 })
 
 
 
 Template.asset.onCreated(function () {
-    console.log("에셋");
+    this.subscribe("postList");
 
 });
 

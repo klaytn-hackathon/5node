@@ -1,7 +1,7 @@
 // Vendor assets
 import './vendor.js';
 // Templates
-import '/imports/templates';
+import '/client/templates';
 // Styles
 
 // Routes

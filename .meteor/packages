@@ -22,3 +22,4 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 kadira:flow-router
 kadira:blaze-layout
 bootstrap
+twbs:bootstrap@=3.3.6
