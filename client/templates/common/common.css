@@ -1,0 +1,23 @@
+.nav-style {
+    margin-bottom: 4em;
+}
+
+.up-down-padding-4 {
+    padding: 4em;
+}
+
+.up-down-padding-3 {
+    padding: 3em;
+}
+
+.up-down-padding-2 {
+    padding: 2em;
+}
+
+.up-down-padding-1 {
+    padding: 1em;
+}
+
+.card:hover {
+    cursor: pointer;
+}

@@ -1,26 +1,26 @@
 import {Template} from "meteor/templating";
 
 
-// Template.fundingList.helpers({
-//     // counter() {
-//     //   return Template.instance().counter.get();
-//     // },
-// });
-//
-// Template.fundingList.events({
-//     // 'click button'(event, instance) {
-//     //   // increment the counter when button is clicked
-//     //   instance.counter.set(instance.counter.get() + 1);
-//     // },
-// });
+Template.fundingList.helpers({
+    list(){
+        return Content.find({},{});
+    }
+});
+
+
+Template.fundingList.events({
+    'click button[name=fund-card]' (evt,tmpl){
+
+        console.log("카드 클릭");
+    }
+});
 
 
 Template.fundingList.onRendered(function() {
 
     // Sparkline
-    console.log("펀딩리스트 안녕");
+    console.log("펀딩리스트 안녕 ");
 })
-
 
 
 Template.fundingList.onCreated(function () {

@@ -21,5 +21,4 @@ autopublish@1.0.7             # Publish all data to the clients (for prototyping
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 kadira:flow-router
 kadira:blaze-layout
-bootstrap
-twbs:bootstrap@=3.3.6
+momentjs:moment

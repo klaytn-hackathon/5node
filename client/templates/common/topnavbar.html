@@ -1,21 +1,18 @@
 <template name="topnavbar">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-style">
+        <a class="navbar-brand" href="#">SIGHT STOCK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link {{isActiveRoute regex='widgets'}} active" href="{{pathFor 'asset'}}">에셋 <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'funding'}}">펀딩</a>
+                <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'mypage'}}">마이페이지</a>
+            </div>
 
-        <div class="stock-nav">
-            <a class="navbar-brand" href="#">SIGHT STOCK</a>
-
-            <ul>
-                <li class="nav-item {{isActiveRoute regex='widgets'}}">
-                    <a href="{{pathFor 'asset'}}">에셋</a>
-                </li>
-                <li class="breadcrumb-item {{isActiveRoute regex='widgets'}}">
-                    <a href="{{pathFor 'funding'}}">펀딩</a>
-                </li>
-                <li class="breadcrumb-item {{isActiveRoute regex='widgets'}}">
-                    <a href="{{pathFor 'mypage'}}">마이페이지</a>
-                </li>
-            </ul>
         </div>
     </nav>
+
 </template>
