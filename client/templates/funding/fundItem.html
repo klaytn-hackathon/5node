@@ -1,8 +1,8 @@
 <template name="fundItem">
 
     <div class="card" style="width: 22em;" name="fund-card">
-        {{#if url}}
-            <img src="{{url}}" class="card-img-top" alt="...">
+        {{#if contentThumbnail}}
+            <img src="{{contentThumbnail}}" class="card-img-top" alt="...">
         {{/if}}
         <div class="card-body">
             <h5 class="card-title">{{title}}</h5>

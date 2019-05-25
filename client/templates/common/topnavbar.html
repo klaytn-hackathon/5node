@@ -9,10 +9,18 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link {{isActiveRoute regex='widgets'}} active" href="{{pathFor 'asset'}}">에셋 <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'funding'}}">펀딩</a>
-                <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'mypage'}}">마이페이지</a>
             </div>
 
+            {{>loginButtons}}
+
+
         </div>
+        <form class="form-inline my-2 my-lg-0">
+
+            {{#if access}}
+                <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'mypage'}}">마이페이지</a>
+            {{/if}}
+        </form>
     </nav>
 
 </template>
