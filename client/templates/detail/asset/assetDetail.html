@@ -1,0 +1,130 @@
+<template name="assetDetail">
+    <!-- Section: Blog v.1 -->
+    <section class="my-5">
+
+        <hr class="my-5">
+
+        <!-- 대표이미지 & 간략소개 row -->
+        <div class="row">
+
+            <!-- 대표이미지 -->
+            <div class="col-lg-5">
+                <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+                    <img class="img-fluid" src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" alt="대표 이미지">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!-- 대표 이미지 -->
+
+            <!-- 간략소개 -->
+            <div class="col-lg-7">
+
+                <a href="#!" class="green-text">
+                    <h6 class="font-weight-bold mb-3"><i class="fas fa-utensils pr-2"></i>여행</h6>
+                </a>
+
+                <p>보홀의 아름다운 해변의 모습과 바닷속 생명체를 근접촬영하여, 수준높은 작품을 체험하실 수 있습니다.</p>
+                <p>by <a><strong>Carine Fox</strong></a>, 19/08/2018</p>
+
+                <div>
+                    <a class="btn btn-success btn-md" style="color: white;">사 용 하 기</a>
+                </div>
+
+            </div>
+            <!-- 간략소개 -->
+
+        </div>
+        <!-- 대표이미지 & 간략소개 row -->
+
+        <hr class="my-5">
+
+        <div class="text-center">
+            <!-- Post title -->
+            <h2 class="font-weight-bold mb-3"><strong>세부에서 아름다운 해변을 담아보자</strong></h2>
+        </div>
+
+        <!-- 태그 row -->
+        <div class="row">
+            <div class="mx-auto">
+                <a href="#" class="badge badge-light">바다</a>
+                <a href="#" class="badge badge-light">풍경</a>
+                <a href="#" class="badge badge-light">필리</a>
+            </div>
+
+        </div>
+        <!-- 태그 row -->
+
+        <hr class="my-5">
+
+        <!-- 이미지 리소스 목록 -->
+        <div class="row">
+
+            <div class="card-columns">
+
+                <div class="card" style="width: 22em" name="asset-resource">
+                    <img src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 22em" name="asset-resource">
+                    <img src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 22em" name="asset-resource">
+                    <img src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 22em" name="asset-resource">
+                    <img src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 22em" name="asset-resource">
+                    <img src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 22em" name="asset-resource">
+                    <img src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <!-- Grid row -->
+
+    </section>
+    <!-- Section: Blog v.1 -->
+</template>
+
+<template name="assetResource">
+
+    <div class="card" style="width: 22em" name="asset-resource">
+        {{#if url}}
+            <img src="{{url}}" class="card-img-top" alt="...">
+        {{/if}}
+        <div class="card-body">
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+
+</template>

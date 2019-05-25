@@ -1,5 +1,3 @@
-// Vendor assets
-import './vendor.js';
 // Templates
 import '/client/templates';
 // Styles

@@ -21,3 +21,7 @@
 .card:hover {
     cursor: pointer;
 }
+
+.group .row {
+    padding: 5px 0px 0px 10px;
+}

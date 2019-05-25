@@ -9,10 +9,7 @@ Template.fundingList.helpers({
 
 
 Template.fundingList.events({
-    'click button[name=fund-card]' (evt,tmpl){
 
-        console.log("카드 클릭");
-    }
 });
 
 

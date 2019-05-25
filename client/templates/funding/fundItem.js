@@ -10,7 +10,7 @@ Template.fundItem.events({
     'click div[name=fund-card]' (evt,tmpl){
 
         console.log("카드 클릭");
-        window.location.href = "/mypage";
+        window.location.href = "/fundDetailPage";
 
     }
 });

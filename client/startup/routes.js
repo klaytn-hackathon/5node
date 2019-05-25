@@ -24,6 +24,18 @@ FlowRouter.route('/mypage', {
 });
 
 
+FlowRouter.route('/assetDetail', {
+    name: 'assetDetail',
+    action: renderLayout('assetDetail')
+});
+
+
+FlowRouter.route('/fundDetailPage', {
+    name: 'fundDetailPage',
+    action: renderLayout('fundDetailPage')
+});
+
+
 
 // Router transitions
 
