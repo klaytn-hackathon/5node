@@ -18,12 +18,11 @@ Template.uploadProposalModal.events({
         }
         $('.hashtags-wrapper').html(str);
     },
-    'submit form[name="proposal"]' (e) {
+    'submit #proposalForm' (e) {
         e.preventDefault();
-        console.dir(e.target);
-        return undefined;
 
     },
+
 
     //파일 업로드 value 구현
 
@@ -31,8 +30,6 @@ Template.uploadProposalModal.events({
         const filename = e.target.value;
 
         $(e.target).next('.custom-file-label').html(filename);
-        console.log(filename);
-        console.log($(e.target).next('.custom-file-label'));
     }
 
 });
