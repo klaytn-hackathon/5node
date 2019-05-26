@@ -59,53 +59,25 @@ Meteor.startup(() => {
     }
 
     if(User.find().count()==0) {
-
         for (let i=0; i<4; i++) {
             let dummyUser = {
-                userId: faker.random.arrayElement(["charles@gmail.com","chuck@gmail.com","joe@gmail.com","pai@gmail.com"]),
+                userId: faker.random.arrayElement(["charles@gmail.com", "chuck@gmail.com", "joe@gmail.com", "pai@gmail.com"]),
                 //creatorName: faker.name.fake("{{name.lastName}}{{name.firstName}}"),
                 creatorCareerList: faker.random.arrayElement([
-                    {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')},
-                    {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')},
-                    {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')},
-                    {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')}
+                    {career: faker.hacker.phrase(), at: faker.date.between('2019-10-30', '2019-12-25')},
+                    {career: faker.hacker.phrase(), at: faker.date.between('2019-10-30', '2019-12-25')},
+                    {career: faker.hacker.phrase(), at: faker.date.between('2019-10-30', '2019-12-25')},
+                    {career: faker.hacker.phrase(), at: faker.date.between('2019-10-30', '2019-12-25')}
                 ]),
                 creatorThumbnail: faker.image.avatar()
             };
-
-            User.insert(dummyUser);
         }
+
     }
 
     if(Usage.find().count()==0) {
 
-        // for (let i=0; i<10; i++) {
-        //     let dummyUsageList = {
-        //         contentId: "",
-        //         investId: "",
-        //         contentTitle: "",
-        //         contentParValue: "",
-        //         contentParValue: "",
-        //     }
-        //
-        //     User.insert(dummyUsageList);
-        // }
 
     }
-
-    if(Invest.find().count()==0) {
-        // Invest.insert({
-        //
-        // });
-
-        // for (let i=0; i<10; i++) {
-        //     let dummyInvestList = {
-        //
-        //     }
-        //
-        //     User.insert(dummyInvestList);
-        // }
-    }
-
 
 });

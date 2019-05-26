@@ -11,9 +11,14 @@
                {{> Template.dynamic template=content }}
             </div>
          </section>
-
          <!-- Page footer-->
           {{> footer }}
 
+          <!-- 모달 템플릿 -->
+          <div class="modal-wrapper">
+              {{> uploadProductionModal}}
+              {{> uploadProposalModal}}
+          </div>
+          <!--// 모달 템플릿 -->
       </div>
 </template>

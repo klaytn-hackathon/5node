@@ -1,14 +1,15 @@
-<template name="investList">
+<template name="contentList">
     <table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th class="th-sm">컨텐츠 번호</th>
-            <th class="th-sm">투자 번호</th>
             <th class="th-sm">컨텐츠 제목</th>
+            <th class="th-sm">제작 비용</th>
             <th class="th-sm">액면가</th>
-            <th class="th-sm">지분수</th>
-            <th class="th-sm">지분율</th>
-            <th class="th-sm">평점</th>
+            <th class="th-sm">투자된 금액</th>
+            <th class="th-sm">펀딩 완료일</th>
+            <th class="th-sm">제작 완료일</th>
+
         </tr>
         </thead>
         <tbody>
@@ -19,19 +20,9 @@
             <td>61</td>
             <td>2011/04/25</td>
             <td>$320,800</td>
+            <td>$320,800</td>
             <td>
-                <fieldset class="rating">
-                    <input type="radio" id="star5" name="rating" value="10" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                    <input type="radio" id="star4half" name="rating" value="9" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                    <input type="radio" id="star4" name="rating" value="8" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                    <input type="radio" id="star3half" name="rating" value="7" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                    <input type="radio" id="star3" name="rating" value="6" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                    <input type="radio" id="star2half" name="rating" value="5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                    <input type="radio" id="star2" name="rating" value="4" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                    <input type="radio" id="star1half" name="rating" value="3" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                    <input type="radio" id="star1" name="rating" value="2" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                    <input type="radio" id="starhalf" name="rating" value="1" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                </fieldset>
+
             </td>
         </tr>
         <tr>
@@ -40,6 +31,7 @@
             <td>Tokyo</td>
             <td>63</td>
             <td>2011/07/25</td>
+            <td>$170,750</td>
             <td>$170,750</td>
             <td>$170,750</td>
         </tr>
@@ -51,6 +43,7 @@
             <td>2009/01/12</td>
             <td>$86,000</td>
             <td>$86,000</td>
+            <td>$86,000</td>
         </tr>
         <tr>
             <td>Cedric Kelly</td>
@@ -58,6 +51,7 @@
             <td>Edinburgh</td>
             <td>22</td>
             <td>2012/03/29</td>
+            <td>$433,060</td>
             <td>$433,060</td>
             <td>$433,060</td>
         </tr>
@@ -69,6 +63,7 @@
             <td>2008/11/28</td>
             <td>$162,700</td>
             <td>$162,700</td>
+            <td>$162,700</td>
         </tr>
         <tr>
             <td>Brielle Williamson</td>
@@ -76,6 +71,7 @@
             <td>New York</td>
             <td>61</td>
             <td>2012/12/02</td>
+            <td>$372,000</td>
             <td>$372,000</td>
             <td>$372,000</td>
         </tr>
@@ -87,6 +83,7 @@
             <td>2012/08/06</td>
             <td>$137,500</td>
             <td>$137,500</td>
+            <td>$137,500</td>
         </tr>
         <tr>
             <td>Rhona Davidson</td>
@@ -94,6 +91,7 @@
             <td>Tokyo</td>
             <td>55</td>
             <td>2010/10/14</td>
+            <td>$327,900</td>
             <td>$327,900</td>
             <td>$327,900</td>
         </tr>
@@ -105,6 +103,7 @@
             <td>2009/09/15</td>
             <td>$205,500</td>
             <td>$205,500</td>
+            <td>$205,500</td>
         </tr>
         <tr>
             <td>Sonya Frost</td>
@@ -112,6 +111,7 @@
             <td>Edinburgh</td>
             <td>23</td>
             <td>2008/12/13</td>
+            <td>$103,600</td>
             <td>$103,600</td>
             <td>$103,600</td>
         </tr>
@@ -123,6 +123,7 @@
             <td>2008/12/19</td>
             <td>$90,560</td>
             <td>$90,560</td>
+            <td>$90,560</td>
         </tr>
         <tr>
             <td>Quinn Flynn</td>
@@ -130,6 +131,7 @@
             <td>Edinburgh</td>
             <td>22</td>
             <td>2013/03/03</td>
+            <td>$342,000</td>
             <td>$342,000</td>
             <td>$342,000</td>
         </tr>
@@ -141,6 +143,7 @@
             <td>2008/10/16</td>
             <td>$470,600</td>
             <td>$470,600</td>
+            <td>$470,600</td>
         </tr>
         <tr>
             <td>Haley Kennedy</td>
@@ -148,6 +151,7 @@
             <td>London</td>
             <td>43</td>
             <td>2012/12/18</td>
+            <td>$313,500</td>
             <td>$313,500</td>
             <td>$313,500</td>
         </tr>
@@ -159,6 +163,7 @@
             <td>2010/03/17</td>
             <td>$385,750</td>
             <td>$385,750</td>
+            <td>$385,750</td>
         </tr>
         <tr>
             <td>Michael Silva</td>
@@ -166,6 +171,7 @@
             <td>London</td>
             <td>66</td>
             <td>2012/11/27</td>
+            <td>$198,500</td>
             <td>$198,500</td>
             <td>$198,500</td>
         </tr>
@@ -177,6 +183,7 @@
             <td>2010/06/09</td>
             <td>$725,000</td>
             <td>$725,000</td>
+            <td>$725,000</td>
         </tr>
         <tr>
             <td>Gloria Little</td>
@@ -184,6 +191,7 @@
             <td>New York</td>
             <td>59</td>
             <td>2009/04/10</td>
+            <td>$237,500</td>
             <td>$237,500</td>
             <td>$237,500</td>
         </tr>
@@ -195,7 +203,9 @@
             <td>2012/10/13</td>
             <td>$132,000</td>
             <td>$132,000</td>
+            <td>$132,000</td>
         </tr>
+
 
         </tbody>
         <tfoot>
