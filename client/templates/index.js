@@ -34,8 +34,10 @@ import './myPage/investList.js';
 import './myPage/usageList.html';
 import './myPage/usageList.js';
 import './myPage/uploadProductionModal.html';
+import './myPage/uploadProductionModal.js';
 
 import './proposal/uploadProposalModal.html';
+import './proposal/uploadProposalModal.js';
 
 import './login/KlaytnLoginButton.js';
 import './login/KlaytnLoginButton.html';

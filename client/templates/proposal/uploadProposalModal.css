@@ -1,0 +1,13 @@
+.hashtag-add-btn{
+    margin-top: 18px;
+    background-color: #fff;
+    color: gray;
+    font-size: 14px;
+    color: rgb(0, 123,255);
+}
+.hashtags-wrapper input{
+    margin-bottom: 10px;
+}
+.custom-file-label{
+    overflow:hidden;
+}

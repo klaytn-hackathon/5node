@@ -3,41 +3,69 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">제작물 업로드 </h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">기획물 업로드 </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-bordered">
-                        <colgroup>
-                            <col/>
-                            <col/>
-                            <col/>
-                            <col/>
-                        </colgroup>
-                        <tbody>
+                    <form name="proposal">
+                        <table class="table table-bordered">
+                            <colgroup>
+                                <col/>
+                                <col/>
+                                <col/>
+                                <col/>
+                            </colgroup>
+                            <tbody>
                             <tr>
                                 <th scope="col">타이틀</th>
                                 <td colspan="3">
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="text" class="form-control" name="title" placeholder="타이틀"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="col">썸네일</th>
                                 <td colspan="3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        <input type="file" class="custom-file-input" id="proposalThumbnail" data-proposal="thumbnail" />
+                                        <label class="custom-file-label" for="proposalThumbnail">파일선택</label>
                                     </div>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
+                            <tr>
+                                <th scope="col">액면가</th>
+                                <td>
+                                    <input type="text" name="issuePrice" class="form-control" placeholder="예) 100" />
+                                </td>
+                                <th scope="col" name="issueCount">발행주식수</th>
+                                <td>
+                                    <input type="text" class="form-control" placeholder="예) 100"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>설명</th>
+                                <td colspan="3">
+                                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>해시태그</th>
+                                <td colspan="3">
+                                    <div class="hashtags-wrapper">
+                                        <input type="text" class="hashtag form-control" placeholder=""/>
+                                    </div>
+                                    <button type="button" class="hashtag-add-btn btn btn-primary btn-lg btn-block">추가</button>
+                                </td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                    <button type="button" class="btn btn-primary">저장</button>
+                    <button type="button" class="btn btn-primary" data-upload="saveBtn">저장</button>
                 </div>
             </div>
         </div>
