@@ -9,8 +9,8 @@ Template.assetItem.helpers({
 Template.assetItem.events({
     'click div[name=asset-card]' (evt,tmpl){
 
-        console.log("카드 클릭");
-        window.location.href = "/assetDetail";
+        console.log(tmpl.data._id);
+        window.location.href = "/assetDetail?id=" + tmpl.data._id;
 
     }
 });

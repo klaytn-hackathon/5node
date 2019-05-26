@@ -53,7 +53,7 @@ Meteor.startup(() => {
         for (let i=0; i<4; i++) {
             let dummyUser = {
                 userId: faker.random.arrayElement(["charles@gmail.com","chuck@gmail.com","joe@gmail.com","pai@gmail.com"]),
-                creatorName: faker.name.fake("{{name.lastName}}{{name.firstName}}"),
+                //creatorName: faker.name.fake("{{name.lastName}}{{name.firstName}}"),
                 creatorCareerList: faker.random.arrayElement([
                     {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')},
                     {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')},
@@ -99,6 +99,3 @@ Meteor.startup(() => {
 
 
 });
-
-
-
