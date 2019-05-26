@@ -30,14 +30,26 @@ Template.uploadProductionModal.events({
         }
         $('.sub-files').html(str);
     },
-    'submit form[data-production="form"]'(e,t){
+    'submit form[data-production="form"]': async (e,t) => {
         e.preventDefault();
-       // const c = $(e.target)[0].serializeArray();
-        //썸네일 정보
-        const thumbnail = $('#productionThumbnail')[0].files[0];
-        //서브이미지정보 subFileList
-    }
-
+		const thumbnail = $('#productionThumbnail')[0].files[0];
+		const thumbnailreader = new FileReader();
+		var thumbnailBinary = [];
+		var subimageBinary = [];
+		thumbnailreader.onload = await function (e){
+			thumbnailBinary.push(thumbnailreader.result)
+		};
+		await thumbnailreader.readAsDataURL(thumbnail);
+		subFileList.forEach(element => {
+			const subimagereader = new FileReader();
+			subimagereader.onload = function(e){
+				subimageBinary.push(subimagereader.result)
+			}
+			subimagereader.readAsDataURL(element)
+		});
+		console.log(thumbnailBinary)
+		console.log(subimageBinary);
+	}
 });
 
 
