@@ -80,4 +80,19 @@ Meteor.startup(() => {
 
     }
 
+    if(Invest.find().count()==0) {
+		var test = Content.find({}).fetch()
+		for(var i = 0; i < 12; i++){
+			dummyInvest={
+				contentId: test[i]._id,
+				contentName: test[i].contentName,
+				parValue: test[i].contentParValue,
+				shareNum: faker.random.number(10),
+				score: test[i].contentScore
+			}
+			Invest.insert(dummyInvest)
+		}
+    }
+
+
 });
