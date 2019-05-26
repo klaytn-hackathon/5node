@@ -23,7 +23,17 @@ Meteor.startup(() => {
                 ]
                 ,contentId:""
                 ,contentCreatorId:"charles@gmail.com"
-                ,contentTag:faker.random.arrayElement(["Accounting","Advertising","AssetRelations","Customer","Finances","Human","LegalMedia","Sales","Marketing"])
+                ,contentTag:faker.fake([
+					{
+						"tag" : "여행"
+					},
+					{
+						"tag" : "필리"
+					},
+					{
+						"tag" : "심해"
+					}
+				])
                 ,contentName:faker.fake("{{name.lastName}}{{name.firstName}}")
                 ,investedKlay:faker.random.number(100)
                 ,contentReturn:faker.random.number(10)
