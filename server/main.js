@@ -52,6 +52,7 @@ Meteor.startup(() => {
                 ,FundingFinishDay:faker.date.between('2019-10-30','2019-12-25')
                 ,ProdFinishDay:faker.date.between('2020-01-01','2020-01-31')
                 ,contentInvestorCnt:faker.random.number({min:1,max:40})
+                ,contentTags: faker.random.arrayElement(["해변","바닷속","하늘","푸르른","해외","특색","인물","풍경"])
             };
             Content.insert(dummyContent);
         }
