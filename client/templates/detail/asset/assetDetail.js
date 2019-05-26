@@ -32,8 +32,30 @@ Template.assetDetail.helpers({
 	tags(){
 		var id = getQueryString('id')
 		var content = Content.findOne({_id: id})
-		console.log(content.contentTag)
 		return content.contentTag
+	},
+	score(){
+		var id = getQueryString('id')
+		var content = Content.findOne({_id: id})
+		var score = content.contentScore
+		var out = ''
+		for(var i = 0; i < 5; i++){
+			if (score >= 20){
+				out += '<span class="fa fa-star"></span>'
+				score -= 20
+			} else if (score >= 10) {
+				out += '<span class="fa fa-star-half-o"></span>'
+				score -= 10
+			} else {
+				out += '<span class="fa fa-star-o"></span>'
+			}
+		}
+		return Spacebars.SafeString(out)
+	},
+	scoreNum(){
+		var id = getQueryString('id')
+		var content = Content.findOne({_id: id})
+		return content.contentScore
 	}
 });
 
