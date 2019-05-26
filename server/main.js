@@ -13,8 +13,6 @@ Meteor.startup(() => {
 
         for(let i = 0 ; i<12 ; i++){
 
-            console.log();
-
             let dummyContent = {
                 contentStatus:faker.random.arrayElement(['진행중','완료'])
                 ,contentThumbnail:faker.image.image(370, 250)
@@ -24,9 +22,10 @@ Meteor.startup(() => {
                     {type:"image",url:faker.image.image(370, 250)},
                 ]
                 ,contentId:""
-                ,contentTag:faker.random.arrayElement(["Accounting","Advertising","AssetRelations","Customer","Finances","Human","LegalMedia","Sales","Marketing"])
+                ,contentCreatorId:"charles@gmail.com"
+                ,contentTag:faker.ranom.arrayElement(["Accounting","Advertising","AssetRelations","Customer","Finances","Human","LegalMedia","Sales","Marketing"])
                 ,contentName:faker.fake("{{name.lastName}}{{name.firstName}}")
-                ,contentInvestKlay:faker.random.number(100)
+                ,investedKlay:faker.random.number(100)
                 ,contentReturn:faker.random.number(10)
                 ,contentReplyList:[
                     {name:faker.fake("{{name.lastName}}{{name.firstName}}"),text:faker.lorem.sentence()}
@@ -50,21 +49,52 @@ Meteor.startup(() => {
     }
 
     if(User.find().count()==0) {
-        // User.insert({
-        //
-        // });
+
+        for (let i=0; i<4; i++) {
+            let dummyUser = {
+                userId: faker.random.arrayElement(["charles@gmail.com","chuck@gmail.com","joe@gmail.com","pai@gmail.com"]),
+                creatorName: faker.name.fake("{{name.lastName}}{{name.firstName}}"),
+                creatorCareerList: faker.random.arrayElement([
+                    {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')},
+                    {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')},
+                    {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')},
+                    {career:faker.hacker.phrase(), at:faker.date.between('2019-10-30','2019-12-25')}
+                ]),
+                creatorThumbnail: faker.image.avatar()
+            };
+
+            User.insert(dummyUser);
+        }
     }
 
     if(Usage.find().count()==0) {
-        // Usage.insert({
-        //
-        // });
+
+        for (let i=0; i<10; i++) {
+            let dummyUsageList = {
+                contentId: "",
+                investId: "",
+                contentTitle: "",
+                contentParValue: "",
+                contentParValue: "",
+            }
+
+            User.insert(dummyUsageList);
+        }
+
     }
 
     if(Invest.find().count()==0) {
         // Invest.insert({
         //
         // });
+
+        for (let i=0; i<10; i++) {
+            let dummyInvestList = {
+
+            }
+
+            User.insert(dummyInvestList);
+        }
     }
 
 
