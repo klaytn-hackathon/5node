@@ -2,7 +2,10 @@ import {Template} from "meteor/templating";
 
 
 Template.investList.helpers({
-
+	invests(){
+		console.log(Invest.find({}).fetch())
+		return Invest.find({})
+	}
 });
 
 Template.investList.events({
