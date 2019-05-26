@@ -28,6 +28,12 @@ Template.assetDetail.helpers({
 		var id = getQueryString('id')
 		var content = Content.findOne({_id: id})
 		return content.ProdFinishDay.toDateString()
+	},
+	tags(){
+		var id = getQueryString('id')
+		var content = Content.findOne({_id: id})
+		console.log(content.contentTag)
+		return content.contentTag
 	}
 });
 
