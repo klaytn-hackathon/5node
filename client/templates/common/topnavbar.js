@@ -1,5 +1,6 @@
 import {Template} from "meteor/templating";
 import "/imports/collections";//추가
+import '../login/KlaytnLoginButton.js';
 
 
 Template.topnavbar.helpers({
