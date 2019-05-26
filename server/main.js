@@ -23,7 +23,7 @@ Meteor.startup(() => {
                 ]
                 ,contentId:""
                 ,contentCreatorId:"charles@gmail.com"
-                ,contentTag:faker.ranom.arrayElement(["Accounting","Advertising","AssetRelations","Customer","Finances","Human","LegalMedia","Sales","Marketing"])
+                ,contentTag:faker.random.arrayElement(["Accounting","Advertising","AssetRelations","Customer","Finances","Human","LegalMedia","Sales","Marketing"])
                 ,contentName:faker.fake("{{name.lastName}}{{name.firstName}}")
                 ,investedKlay:faker.random.number(100)
                 ,contentReturn:faker.random.number(10)
@@ -69,17 +69,17 @@ Meteor.startup(() => {
 
     if(Usage.find().count()==0) {
 
-        for (let i=0; i<10; i++) {
-            let dummyUsageList = {
-                contentId: "",
-                investId: "",
-                contentTitle: "",
-                contentParValue: "",
-                contentParValue: "",
-            }
-
-            User.insert(dummyUsageList);
-        }
+        // for (let i=0; i<10; i++) {
+        //     let dummyUsageList = {
+        //         contentId: "",
+        //         investId: "",
+        //         contentTitle: "",
+        //         contentParValue: "",
+        //         contentParValue: "",
+        //     }
+        //
+        //     User.insert(dummyUsageList);
+        // }
 
     }
 
@@ -88,13 +88,13 @@ Meteor.startup(() => {
         //
         // });
 
-        for (let i=0; i<10; i++) {
-            let dummyInvestList = {
-
-            }
-
-            User.insert(dummyInvestList);
-        }
+        // for (let i=0; i<10; i++) {
+        //     let dummyInvestList = {
+        //
+        //     }
+        //
+        //     User.insert(dummyInvestList);
+        // }
     }
 
 

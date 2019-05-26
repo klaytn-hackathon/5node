@@ -20,7 +20,6 @@ Template.assetList.onRendered(function() {
 
 
 Template.assetList.onCreated(function () {
-    console.log("에셋 목록");
     this.subscribe("contentList");
 });
 

@@ -7,6 +7,6 @@ Meteor.methods({
         }
 
         return Content.findOne({_id: content_id});
-    }
+    },
 });
 

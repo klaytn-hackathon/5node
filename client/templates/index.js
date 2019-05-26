@@ -27,8 +27,11 @@ import './detail/funding/commentList.js'
 
 import './myPage/mypage.html';
 import './myPage/mypage.js';
-import './myPage/contentList.html';
+import './myPage/createdList.html';
+import './myPage/createdList.js';
 import './myPage/investList.html';
+import './myPage/investList.js';
 import './myPage/usageList.html';
+import './myPage/usageList.js';
 
 
