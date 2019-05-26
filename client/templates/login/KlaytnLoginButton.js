@@ -7,8 +7,20 @@
 import {Template} from "meteor/templating";
 import {ReactiveVar} from "meteor/reactive-var";
 import Caver from 'caver-js';
-
 import "./KlaytnLoginButton.html";
+
+caver = new Caver({rpcURL : 'http://api.baobab.klaytn.net:8651'});
+
+Meteor.startup(function(){
+   const walletFromSession = sessionStorage.getItem("walletInstance");
+   if(walletFromSession){
+       try{
+            caver.klay.accounts.wallet.add(JSON.parse(walletFromSession));
+       }catch(e){
+            sessionStorage.removeItem("walletInstance");
+       }
+   }
+});
 
 Template.KlaytnLoginButton.helpers({
     pk() {
@@ -26,11 +38,16 @@ Template.KlaytnLoginButton.helpers({
 });
 
 Template.KlaytnLoginButton.onCreated(function klaytnLoginOnCreated() {
-    this.caver = new Caver({rpcURL : 'http://api.baobab.klaytn.net:8651'});
     this.privateKey = new ReactiveVar("");
     this.klaytnAddress = "";
     this.mode = new ReactiveVar(""); // login | signin
 });
+
+Template.KlaytnLoginButton.onRendered(function klaytnLoginOnCreated() {
+
+
+});
+
 
 Template.KlaytnLoginButton.events({
     "click .goLogin" (evt,tmpl){ tmpl.mode.set("login"); }
@@ -39,6 +56,8 @@ Template.KlaytnLoginButton.events({
     ,
     "click .KlaytnLogOutButton" (evt,tmpl){
         Meteor.logout();
+        caver.klay.accounts.wallet.clear();
+        sessionStorage.removeItem("walletInstance");
     }
     ,
     "click .KlaytnLoginButton" (evt,tmpl){
@@ -50,7 +69,7 @@ Template.KlaytnLoginButton.events({
     }
     ,
     "click input[name=createPrivateKey]" (evt,tmpl){
-        let accounts = tmpl.caver.klay.accounts.create();
+        let accounts = caver.klay.accounts.create();
         tmpl.privateKey.set(accounts.privateKey);
         tmpl.klaytnAddress = accounts.address;
     }    ,
@@ -104,6 +123,9 @@ Template.KlaytnLoginButton.events({
                 $(tmpl.findAll('input')).val("");
 
                 //todo 클레이튼연결하기
+                const walletInstance = caver.klay.accounts.privateKeyToAccount(password);
+                caver.klay.accounts.wallet.add(walletInstance);
+                sessionStorage.setItem("walletInstance",JSON.stringify(walletInstance));
 
             }else{
                 alert(error.reason);
