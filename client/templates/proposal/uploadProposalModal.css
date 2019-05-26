@@ -8,6 +8,16 @@
 .hashtags-wrapper input{
     margin-bottom: 10px;
 }
+.hashtags-wrapper .created{
+    margin-bottom:10px;
+}
+.hashtags-wrapper .created .hashtag{
+    display:inline-block;
+    margin-right: 10px;
+    padding: 10px 8px;
+    background-color: #eee;
+    border-radius: 25%;
+}
 .custom-file-label{
     overflow:hidden;
 }

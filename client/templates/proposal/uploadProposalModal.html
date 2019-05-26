@@ -38,24 +38,28 @@
                                 <td>
                                     <input type="text" name="issuePrice" class="form-control" placeholder="예) 100" />
                                 </td>
-                                <th scope="col" name="issueCount">발행주식수</th>
+                                <th scope="col">발행주식수</th>
                                 <td>
-                                    <input type="text" class="form-control" placeholder="예) 100"/>
+                                    <input type="text" name="issueCount" class="form-control" placeholder="예) 100"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th>설명</th>
                                 <td colspan="3">
-                                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                                    <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
                                 </td>
                             </tr>
                             <tr>
                                 <th>해시태그</th>
                                 <td colspan="3">
                                     <div class="hashtags-wrapper">
-                                        <input type="text" class="hashtag form-control" placeholder=""/>
+                                        <div class="created">
+                                        </div>
+                                        <span>
+                                            <input type="text" class="form-control" placeholder=""/>
+                                            <button class="btn btn-primary save_hastag" type="button" >저장</button>
+                                        </span>
                                     </div>
-                                    <button type="button" class="hashtag-add-btn btn btn-primary btn-lg btn-block">추가</button>
                                 </td>
 
                             </tr>

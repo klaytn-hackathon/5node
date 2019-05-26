@@ -1,8 +1,9 @@
 import {Template} from "meteor/templating";
 const subFileList = [];
 
+
 Template.uploadProductionModal.helpers({
-    hashTagsCount : []
+    hashTagsCount : [{}]
 });
 
 
