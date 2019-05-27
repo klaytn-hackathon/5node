@@ -45,8 +45,8 @@ import './myPage/uploadProductionModal.js';
 /* 로그인 */
 // import './login/KlaytnLoginButton.js'
 // import './login/KlaytnLoginButton.html';
-import './login/login.js';
 import './login/login.html';
+import './login/login.js';
 
 /* 가입하기 */
 import './login/signin.html';

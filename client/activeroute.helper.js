@@ -3,7 +3,6 @@
 import {Template} from "meteor/templating";
 
 import Caver from 'caver-js';
-import "./KlaytnLoginButton.html";
 
 /**
  * isActiveRoute: check if the route name in params options is the current route
