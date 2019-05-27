@@ -1,0 +1,14 @@
+#topNav .proposal_btn_wrap{
+    margin-right: 20px;
+}
+#topNav .dropdown{
+  cursor:pointer;
+}
+#topNav .dropdown .dropdown-menu{
+    right:0;
+    left:auto;
+    top:130%;
+}
+#topNav .dropdown .dropdown-menu .nav-item{
+    color : inherit;
+}

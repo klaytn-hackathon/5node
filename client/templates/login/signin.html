@@ -1,0 +1,15 @@
+<template name="signin">
+    <div>
+        <p><input type="text" name="email" placeholder="메일"></p>
+        <p><input type="text" name="name" placeholder="이름"></p>
+        <p><input type="text" disabled name="password" value="{{pk}}" placeholder="비밀키">
+            <input type="button" name="createPrivateKey" value="비밀키생성">
+            <input type="button" name="copyPrivateKey" value="복사">
+        </p>
+        <p>비밀키 생성 후 안전한 곳에 저장하세요. <br/>분실하면 절대 찾을 수 없습니다.</p>
+
+        <p><button name="signUp">가입</button>
+            <button name="cancel">취소</button></p>
+        <p><div class="goLogin">[로그인하기]</div></p>
+    </div>
+</template>

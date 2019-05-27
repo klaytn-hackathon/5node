@@ -1,26 +1,43 @@
 <template name="topnavbar">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-style">
-        <a class="navbar-brand" href="#">SIGHT STOCK</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link {{isActiveRoute regex='widgets'}} active" href="{{pathFor 'asset'}}">에셋 <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'funding'}}">펀딩</a>
+    <div id="topNav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light nav-style">
+            <a class="navbar-brand" href="#">SIGHT STOCK</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link {{isActiveRoute regex='widgets'}} active" href="{{pathFor 'asset'}}">에셋 <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'funding'}}">펀딩</a>
+                </div>
             </div>
+            <div class="form-inline my-2 my-lg-0">
 
-            {{>KlaytnLoginButton}}
+                <!-- user 로그인 안했을때  -->
+                <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'login'}}">로그인</a>
+                <!--// user 로그인 안했을때  -->
 
 
-        </div>
-        <form class="form-inline my-2 my-lg-0">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadProposalModal">
-                    기획서 업로드
-                </button>
-                <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'mypage'}}">마이페이지</a>
-        </form>
-    </nav>
+                <!-- user 로그인했을대 -->
+                <div class="proposal_btn_wrap form-inline my-2 my-lg-0">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadProposalModal">
+                        기획서 업로드
+                    </button>
+                </div>
+                <div>
+                    <div class="dropdown">
+                        <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            안녕{{currentUserName}}
+                        </span>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'mypage'}}">마이페이지</a>
+                            <a class="nav-item nav-link KlaytnLogOutButton">로그아웃</a>
+                        </div>
+                    </div>
+                </div>
+                <!--// user 로그인했을때 -->
+            </div>
+        </nav>
+    </div>
 
 </template>

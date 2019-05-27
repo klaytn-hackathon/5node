@@ -6,6 +6,17 @@ FlowRouter.route('/', {
     action: () => FlowRouter.go('/asset')
 });
 
+FlowRouter.route('/signin', {
+    name: 'signin',
+    action: renderLayout('signin')
+});
+
+
+FlowRouter.route('/login', {
+    name: 'login',
+    action: renderLayout('login')
+});
+
 FlowRouter.route('/asset', {
     name: 'asset',
     action: renderLayout('asset')
@@ -16,7 +27,6 @@ FlowRouter.route('/funding', {
     name: 'funding',
     action: renderLayout('funding')
 });
-
 
 FlowRouter.route('/mypage', {
     name: 'mypage',
@@ -34,8 +44,6 @@ FlowRouter.route('/fundDetailPage', {
     name: 'fundDetailPage',
     action: renderLayout('fundDetailPage')
 });
-
-
 
 // Router transitions
 
