@@ -9,6 +9,8 @@ import './asset/assetList.html';
 import './asset/assetList.js';
 import './asset/assetItem.html';
 import './asset/assetItem.js';
+import './asset/detail/assetDetail.html'
+import './asset/detail/assetDetail.js'
 
 /* 펀딩 */
 import './funding/fundingPage.html';
@@ -27,6 +29,7 @@ import './detail/funding/fundDetail.html'
 import './detail/funding/fundDetail.js'
 import './detail/funding/commentList.html'
 import './detail/funding/commentList.js'
+
 
 /* 마이페이지 */
 import './myPage/mypage.html';

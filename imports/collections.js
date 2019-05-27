@@ -1,3 +1,6 @@
+// 미니 몽고 저장소 (몽고디비에서만 다루는 데이터)
+CurrentContent = new Mongo.Collection(null);
+
 // 컨텐츠 (
 Content = new Mongo.Collection("Content");
 
