@@ -19,17 +19,12 @@ import './funding/fundingList.html';
 import './funding/fundingList.js';
 import './funding/fundItem.html';
 import './funding/fundItem.js';
-
-/* 에셋/펀딩 상세 */
-import './detail/asset/assetDetail.html'
-import './detail/asset/assetDetail.js'
-import './detail/funding/fundDetailPage.html'
-import './detail/funding/fundDetailPage.js'
-import './detail/funding/fundDetail.html'
-import './detail/funding/fundDetail.js'
-import './detail/funding/commentList.html'
-import './detail/funding/commentList.js'
-
+import './funding/detail/fundDetailPage.html'
+import './funding/detail/fundDetailPage.js'
+import './funding/detail/fundDetail.html'
+import './funding/detail/fundDetail.js'
+import './funding/detail/commentList.html'
+import './funding/detail/commentList.js'
 
 /* 마이페이지 */
 import './myPage/mypage.html';
