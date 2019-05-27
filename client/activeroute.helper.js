@@ -1,5 +1,9 @@
 // Global template helper replacing "zimme:active-route"
 // only used to check actives routes using FlowRouter
+import {Template} from "meteor/templating";
+
+import Caver from 'caver-js';
+import "./KlaytnLoginButton.html";
 
 /**
  * isActiveRoute: check if the route name in params options is the current route
@@ -36,3 +40,8 @@ Template.registerHelper('isActiveRoute', function(params) {
 Template.registerHelper('pathFor', function(routeName) {
     return FlowRouter.path(routeName)
 });
+
+
+Template.registerHelper('caver', function() {
+    return new Caver({rpcURL : Constant.KLAYTN_BAOBAB_URL});
+})
