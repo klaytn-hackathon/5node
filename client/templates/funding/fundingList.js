@@ -13,16 +13,8 @@ Template.fundingList.events({
 });
 
 
-Template.fundingList.onRendered(function() {
-
-    // Sparkline
-    console.log("펀딩리스트 안녕 ");
-})
-
-
 Template.fundingList.onCreated(function () {
-    console.log("펀딩");
-
+    this.subscribe("contentList");
 });
 
 Template.fundingList.onRendered(function () {

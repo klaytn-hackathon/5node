@@ -1,9 +1,8 @@
 
 <template name="assetItem">
     <div class="card" style="width: 22em" name="asset-card">
-        {{#if contentThumbnail}}
-            <img src="{{contentThumbnail}}" class="card-img-top" alt="...">
-        {{/if}}
+
+        <img src="{{contentResourceList.[0]}}" class="card-img-top" alt="...">
         <div class="card-body">
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>

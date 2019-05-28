@@ -1,0 +1,9 @@
+
+.fund-txt {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.fund-txt + span {
+    vertical-align: middle;
+}
