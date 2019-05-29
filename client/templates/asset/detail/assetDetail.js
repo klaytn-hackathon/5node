@@ -61,8 +61,36 @@ Template.assetDetail.helpers({
 
 
 Template.assetDetail.events({
-	'click #use-asset': () => {
-		console.log('button clicked!')
+	'click button[name=assetUseBtn]': (evt, tmpl) => {
+
+		let id = getQueryString('id')
+		let content = Content.findOne({_id: id});
+		// let userId = sessionStorage.getItem("userId");
+		let userId = "charles@gmail.com";
+
+		let param = {
+			contentId: content._id,
+			userId: userId,
+			contentName: content.contentName,
+			usedKlay: 3,
+			paidAt: new Date()
+		}
+
+		Meteor.call('useContent', param ,(err,data)=>{
+			if(err){
+				console.log(err);
+				alert('서버에러 => ' + err.error);
+
+			}else{
+				console.log(data);
+				if (data > 0) {
+					alert("3 Klay를 소진하여 해당 컨텐츠를 구매완료 하셨습니다.");
+				} else {
+					alert("구매 완료 된 건이 없습니다.");
+				}
+			}
+		});
+
 	}
 });
 

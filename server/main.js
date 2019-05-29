@@ -3,8 +3,8 @@ import "/imports/collections";//추가
 import "./publications/Content";//추가
 import './methods/Content';
 import './methods/Invest';
-// import './methods/Usage';
-// import './methods/User';
+import './methods/Usage';
+import './methods/User';
 
 
 // sight-stock-meteor > meteor npm install faker
@@ -17,32 +17,32 @@ Meteor.startup(() => {
     if(Content.find().count()==0) {
 
         let contentResourceUrlArr = [
-            "https://images.pexels.com/photos/462162/pexels-photo-462162.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/206448/pexels-photo-206448.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/1386604/pexels-photo-1386604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/870711/pexels-photo-870711.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/1545590/pexels-photo-1545590.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/449627/pexels-photo-449627.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/5390/sunset-hands-love-woman.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/234510/pexels-photo-234510.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/273136/pexels-photo-273136.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/1181181/pexels-photo-1181181.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/40192/woman-happiness-sunrise-silhouette-40192.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/1237119/pexels-photo-1237119.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/1937394/pexels-photo-1937394.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/53184/peacock-bird-plumage-color-53184.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/1089855/pexels-photo-1089855.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/235734/pexels-photo-235734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/258112/pexels-photo-258112.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/1647214/pexels-photo-1647214.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/1047051/pexels-photo-1047051.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            ,"https://images.pexels.com/photos/1076429/pexels-photo-1076429.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            {url:"https://images.pexels.com/photos/462162/pexels-photo-462162.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/206448/pexels-photo-206448.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/1386604/pexels-photo-1386604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/870711/pexels-photo-870711.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/45853/grey-crowned-crane-bird-crane-animal-45853.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/1545590/pexels-photo-1545590.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/449627/pexels-photo-449627.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/5390/sunset-hands-love-woman.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/234510/pexels-photo-234510.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/273136/pexels-photo-273136.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/1181181/pexels-photo-1181181.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/40192/woman-happiness-sunrise-silhouette-40192.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/1237119/pexels-photo-1237119.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/1937394/pexels-photo-1937394.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/53184/peacock-bird-plumage-color-53184.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/1089855/pexels-photo-1089855.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/235734/pexels-photo-235734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/258112/pexels-photo-258112.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/1647214/pexels-photo-1647214.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/1047051/pexels-photo-1047051.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
+            ,{url:"https://images.pexels.com/photos/1076429/pexels-photo-1076429.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
         ];
 
         let fundThumbnail = [
@@ -108,9 +108,9 @@ Meteor.startup(() => {
                     ,{name:faker.fake("{{name.lastName}}{{name.firstName}}"),text:faker.lorem.sentence()}
                     ,{name:faker.fake("{{name.lastName}}{{name.firstName}}"),text:faker.lorem.sentence()}
                 ]
-                ,contentScore:faker.random.number(100)
+                ,contentScore:faker.random.number(10)
                 ,contentDesc:faker.random.arrayElement([
-                    "보홀의 푸른 바닷속에 펼쳐지는 풍경//<br>/g/g " +
+                    "보홀의 푸른 바닷속에 펼쳐지는 풍경 /\n/\r" +
                     "그 속에 사는 수많은 생물들을 수중 카메라에 담기위해 떠나는 여행/<br>/g " +
                     "그 어떤 사진과도 비교할 수 없는 작품을 만들것입니다.",
 
@@ -151,6 +151,9 @@ Meteor.startup(() => {
                 ,ProdFinishDay:faker.date.between('2020-01-01','2020-01-31')
                 ,contentInvestorCnt:faker.random.number({min:1,max:40})
                 ,contentTags: faker.random.arrayElement([["해변","바닷속"],["하늘","푸르른","해외"],["특색","인물","풍경"]])
+                ,purchaceModuleAddr: ""
+                ,investModuleAddr: ""
+                ,distributeModuleAddr: ""
             };
             Content.insert(dummyContent);
         }
@@ -196,7 +199,9 @@ Meteor.startup(() => {
 				investorWalletAddr: faker.random.arrayElement(["AAA", "BBB", "CCC", "DDD"]),
 				contentName: test[i].contentName,
 				parValue: test[i].contentParValue,
+                klayVal: 20,
 				shareNum: faker.random.number(10),
+                sharePer: 2,
 				score: test[i].contentScore
 			}
 			Invest.insert(dummyInvest)

@@ -54,10 +54,6 @@ Template.uploadProductionModal.events({
 });
 
 
-Template.uploadProductionModal.onRendered(function() {
-
-})
-
 
 Template.uploadProductionModal.onCreated(function () {
 

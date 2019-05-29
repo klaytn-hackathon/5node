@@ -72,3 +72,10 @@
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
 
 label.static:hover{ color: inherit; }
+
+
+.detailThumb {
+    width:370px; height:370px;
+    background-repeat: no-repeat;
+    background-size: auto;
+}

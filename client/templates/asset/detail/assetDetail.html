@@ -10,7 +10,14 @@
             <!-- 대표이미지 -->
             <div class="col-lg-5">
                 <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
-                    <img class="img-fluid" src="{{thumbnail}}" alt="대표 이미지">
+                    <img class="img-fluid"
+                         style="width:370px;
+                                 height:300px;
+                                 background-repeat: no-repeat;
+                                 background-image: url({{resourceList.[0].url}});
+                                 background-size: cover">
+
+
                     <a>
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -25,7 +32,7 @@
 				<p>{{description}}</p>
 				<div>
 				<!-- TODO: Tag-dynamic -->
-				{{#each tags}}
+				{{#each tags}}tags
 					<a href="#" class="badge badge-light">{{tag}}</a>
 				{{/each}}
 				</div>
@@ -35,9 +42,14 @@
                 <div class="rating-wrapper">
 					{{score}}
 					<span style='font-weight: bolder; font-size: 1.5em'>{{scoreNum}} 점</span>
+
+                    <span class="float-right" style="font-size: 1.5em; font-weight: bolder;">3 KLAY</span>
                 </div>
-                <div>
-                    <a class="btn btn-success btn-md" style="color: white;">사 용 하 기</a>
+
+                <div style="width: 100%">
+                    <button class="btn btn-primary btn-block"
+                            name="assetUseBtn"
+                    >사 용 하 기</button>
                 </div>
 
             </div>
@@ -65,9 +77,7 @@
 					{{#if url}}
 						<img src="{{url}}" class="card-img-top" alt="...">
 					{{/if}}
-                    <div class="card-body">
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
+
 				</div>
 				{{/each}}
             </div>
@@ -77,17 +87,4 @@
 
     </section>
     <!-- Section: Blog v.1 -->
-</template>
-
-<template name="assetResource">
-
-    <div class="card" style="width: 22em" name="asset-resource">
-        {{#if url}}
-            <img src="{{url}}" class="card-img-top" alt="...">
-        {{/if}}
-        <div class="card-body">
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-    </div>
-
 </template>
