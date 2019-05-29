@@ -48,23 +48,45 @@ Template.uploadProposalModal.events({
         $(e.target).next('.custom-file-label').html(filename);
     },
     //submit
-    'submit #proposalForm' (e) {
+    'submit #proposalForm': async function (e) {
         e.preventDefault();
-        const thumbnail = $('input[data-proposal="thumbnail"]')[0].files[0];
+		const thumbnail = $('#proposalThumbnail')[0].files[0];
+		const thumbnailreader = new FileReader();
+		function readFileAsync(file) {
+			return new Promise((resolve, reject) => {
+			  let reader = new FileReader();
+
+			  reader.onload = () => {
+				resolve(reader.result);
+			  };
+
+			  reader.onerror = reject;
+
+			  reader.readAsDataURL(file);
+			})
+		  }
+		const thumbnailBinary = await readFileAsync(thumbnail);
         const title = $('input[name="title"]')[0].value;
         const issuePrice = $('input[name="issuePrice"]')[0].value;
         const issueCount = $('input[name="issueCount"]')[0].value;
-        const description = $('textarea[name="description"]')[0].value;
+		const description = $('textarea[name="description"]')[0].value;
+		const userId = sessionStorage.getItem("userId");
 
         const data = {
-            hashTagList,
-            thumbnail,
-            title,
-            issuePrice,
-            issueCount,
-            description
-        }
-        console.log(data);
+			contentStatus: '진행중',
+            contentTag: hashTagList,
+            contentThumbnail: thumbnailBinary,
+            contentName:title,
+            contentParValue: issuePrice,
+            contentTotalSupply: issueCount,
+			contentDesc: description,
+			contentCreater:{
+				userId: userId
+			}
+		}
+		Content.insert(data);
+		alert('업로드 되었습니다!')
+		location.reload();
     },
 
 
