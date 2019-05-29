@@ -104,19 +104,24 @@
 
             <div class="row">
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <h5 class="font-weight-bold my-4">전체 주식 수</h5>
                     <h4 class="grey-text mb-md-0 mb-5">{{content.contentTotalSupply}} 개</h4>
                 </div>
 
-                <div class="col-md-4">
-                    <h5 class="font-weight-bold my-4">액면가</h5>
-                    <h4 class="grey-text mb-md-0 mb-5">{{content.contentParValue}} 원</h4>
+                <div class="col-md-3">
+                    <h5 class="font-weight-bold my-4">사용가</h5>
+                    <h4 class="grey-text mb-md-0 mb-5">3 KLAY</h4>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <h5 class="font-weight-bold my-4">액면가</h5>
+                    <h4 class="grey-text mb-md-0 mb-5">{{content.contentParValue}} KLAY</h4>
+                </div>
+
+                <div class="col-md-3">
                     <h5 class="font-weight-bold my-4">제작비용</h5>
-                    <h4 class="grey-text mb-0">{{content.contentProdCost}} 원</h4>
+                    <h4 class="grey-text mb-0">{{content.contentProdCost}} KLAY</h4>
                 </div>
 
             </div>
@@ -198,7 +203,7 @@
     <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
 
         <div class="view overlay rounded z-depth-2 mb-4">
-            <img class="img-fluid" src="{{contentResourceList.[0]}}" style="width:370px; height: 250px;" alt="Sample image">
+            <img class="img-fluid" src="{{contentResourceList.[0].url}}" style="width:370px; height: 250px;" alt="Sample image">
             <a>
                 <div class="mask rgba-white-slight"></div>
             </a>

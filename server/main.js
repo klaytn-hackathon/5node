@@ -110,7 +110,7 @@ Meteor.startup(() => {
                 ]
                 ,contentScore:faker.random.number(10)
                 ,contentDesc:faker.random.arrayElement([
-                    "보홀의 푸른 바닷속에 펼쳐지는 풍경//<br>/g/g " +
+                    "보홀의 푸른 바닷속에 펼쳐지는 풍경 /\n/\r" +
                     "그 속에 사는 수많은 생물들을 수중 카메라에 담기위해 떠나는 여행/<br>/g " +
                     "그 어떤 사진과도 비교할 수 없는 작품을 만들것입니다.",
 
@@ -151,6 +151,9 @@ Meteor.startup(() => {
                 ,ProdFinishDay:faker.date.between('2020-01-01','2020-01-31')
                 ,contentInvestorCnt:faker.random.number({min:1,max:40})
                 ,contentTags: faker.random.arrayElement([["해변","바닷속"],["하늘","푸르른","해외"],["특색","인물","풍경"]])
+                ,purchaceModuleAddr: ""
+                ,investModuleAddr: ""
+                ,distributeModuleAddr: ""
             };
             Content.insert(dummyContent);
         }

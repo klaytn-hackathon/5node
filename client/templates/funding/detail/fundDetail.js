@@ -50,9 +50,6 @@ Template.fundDetail.events({
         if (content.contentTotalSupply <
             content.investedKlay + klayVal) {
 
-            console.log(content.contentTotalSupply);
-            console.log(content.investedKlay + klayVal);
-
             alert("더이상 투자를 하실 수 없습니다.");
             return;
         }
@@ -74,7 +71,11 @@ Template.fundDetail.events({
                 console.log(err);
                 alert('서버에러 => ' + err.error);
             }else{
-                console.log(data);
+
+                if (data > 0) {
+                    alert("투자한 KLAY 수 - " + klayVal + "/n" +
+                            "보유하게 된 STOCK 수 " + stockVal);
+                }
             }
         });
     },
