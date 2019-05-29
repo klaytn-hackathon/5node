@@ -30,4 +30,14 @@ Meteor.methods({
         // 컨텐츠에 투자자 수 입력
         return Content.update({_id: row.contentId}, {$set:set});
     },
+    updateToInvestScore(row) {
+        if(!row){
+            throw new Meteor.Error("입력값이 없습니다");
+        }
+        let set = {};
+        set.score = row.score
+
+        return Invest.update({_id: row.investId}, {$set:set});
+
+    }
 });

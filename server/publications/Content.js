@@ -9,3 +9,7 @@ Meteor.publish('ContentById', function () {
 Meteor.publish('CreatedList', function () {
     return Content.find({});
 });
+
+Meteor.publish('InvestList', function () {
+    return Invest.findOne({});
+});

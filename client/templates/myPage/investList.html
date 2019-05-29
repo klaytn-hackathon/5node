@@ -9,10 +9,11 @@
             <th class="th-sm">지분수</th>
             <th class="th-sm">지분율</th>
             <th class="th-sm">평점</th>
+            <th class="th-sm"></th>
         </tr>
         </thead>
         <tbody>
-		{{#each invests}}
+		{{#each investList}}
         <tr>
             <td>{{contentId}}</td>
             <td>{{_id}}</td>
@@ -20,7 +21,20 @@
             <td>{{parValue}}</td>
             <td>{{shareNum}}</td>
             <td>{{shareNum}}</td>
-			<td><input type="text" value={{score}}></td>
+			<td class="group">
+
+                {{#if checkUpload contentId score}}
+                    <input name="scoreInput" style="width: 60px;" type="number" value={{score}}>
+                {{else}}
+                    <input name="scoreInput_{{_id}}" readonly style="width: 60px;" type="number" value={{score}}>
+                {{/if}}
+
+            </td>
+            <td>
+                {{#if checkUpload contentId score}}
+                    <button name="rating" style="display: inline" type="button" class="btn btn-primary">평가하기</button>
+                {{/if}}
+            </td>
 		</tr>
 		{{/each}}
         </tbody>

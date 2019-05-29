@@ -8,7 +8,13 @@
         <!-- 대표이미지 -->
         <div class="col-lg-5">
             <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
-                <img class="img-fluid" src="{{content.contentThumbnail}}" alt="대표 이미지">
+                <img class="img-fluid detailThumb"
+                     style="width:370px;
+                             height:370px;
+                             background-repeat: no-repeat;
+                             background-image: url({{content.contentThumbnail}});
+                             background-size: cover"
+                     >
                 <a>
                     <div class="mask rgba-white-slight"></div>
                 </a>

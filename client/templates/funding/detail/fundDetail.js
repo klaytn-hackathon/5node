@@ -66,6 +66,7 @@ Template.fundDetail.events({
             shareNum: stockVal,
             klayVal: klayVal,
             sharePer: Math.floor(stockVal / content.contentTotalSupply * 100),
+            score: 0,
         }
 
         Meteor.call('investToContent', param ,(err,data)=>{
@@ -93,7 +94,6 @@ Template.fundDetail.events({
 Template.fundDetail.onCreated(function () {
 
     let instance = this;
-
     instance.subscribe("ContentById");
 });
 
