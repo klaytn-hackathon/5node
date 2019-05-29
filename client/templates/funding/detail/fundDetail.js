@@ -2,7 +2,7 @@ import {Template} from "meteor/templating";
 import {provider, caver} from "../../caver";
 import {ethers} from "ethers";
 import productABI from "../../../contracts/ABI/ProductABI.json";
-import investModuleABI from "../../../contracts/ABI/BasicInvestModule.json";
+import investModuleABI from "../../../contracts/ABI/BasicInvestModuleABI.json";
 // import memont from "moment";
 
 
@@ -41,15 +41,15 @@ Template.topThreeTmpl.helpers({
 //해당 투자 모듈에 투자해야한다.
 Template.fundDetail.events({
     "click button[name=investBtn]" (evt,tmpl){
-        let provider = new ethers.providers.JsonRpcProvider('https://api.baobab.klaytn.net:8651');
-        let investModuleAddr = "0xf78546a6fc64ef2cd9f84b71f5f0ec662c16277c";
-        let investModule = new ethers.Contract(investModuleAddr, investModuleABI, provider);
-        // investModule.
-        console.log(123, investModule);
+        // let provider = new ethers.providers.JsonRpcProvider('https://api.baobab.klaytn.net:8651');
+        // let investModuleAddr = "0xf78546a6fc64ef2cd9f84b71f5f0ec662c16277c";
+        // let investModule = new ethers.Contract(investModuleAddr, investModuleABI, provider);
+        // // investModule.
+        // console.log(123, investModule);
 
-        let klayVal = parseInt(tmpl.find('input[name=investVal]').value);
-        let stockVal = parseInt(tmpl.find('input[name=stockVal]').value);
-        let content = Content.findOne({_id: Session.get("CurrentContentId")},{});
+        // let klayVal = parseInt(tmpl.find('input[name=investVal]').value);
+        // let stockVal = parseInt(tmpl.find('input[name=stockVal]').value);
+        // let content = Content.findOne({_id: Session.get("CurrentContentId")},{});
 
 
         if (klayVal == "" || klayVal == 0) {
