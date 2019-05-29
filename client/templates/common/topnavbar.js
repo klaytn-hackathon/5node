@@ -4,21 +4,23 @@ import '../login/login.js';
 
 
 Template.topnavbar.helpers({
-    access(){
-        return true;
+    currentUserName(){
+        return Meteor.user().profile.name;
     }
 });
 
 
 Template.topnavbar.events({
+    "click .KlaytnLogOutButton" (evt,tmpl){
 
+        console.log("Come in");
+        console.log(Meteor.user().profile.name);
+
+        Meteor.logout();
+        caver.klay.accounts.wallet.clear();
+        sessionStorage.removeItem("walletInstance");
+    }
 });
-
-
-Template.topnavbar.onRendered(function() {
-
-})
-
 
 Template.topnavbar.onCreated(function () {
 

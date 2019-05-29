@@ -1,4 +1,6 @@
 import {Template} from "meteor/templating";
+import {caver} from "../caver.js";
+import {ReactiveVar} from "meteor/reactive-var";
 
 
 Template.signin.helpers({
@@ -10,7 +12,7 @@ Template.signin.helpers({
 Template.signin.events({
     "click button[name=signUp]" (evt,tmpl){
         var email    = tmpl.find('input[name=email]').value;
-        var password = tmpl.find('input[name=password]').value;
+        var password = tmpl.find('input[name=createPrivateKey]').value;
         var name     = tmpl.find('input[name=name]').value;
         if(!password) {
             alert("패스워드를 확인하세요");
@@ -27,19 +29,11 @@ Template.signin.events({
             }else{
                 alert("가입 성공");
                 $(tmpl.findAll('input')).val("");
-
-                Meteor.loginWithPassword(email,password,function(error){
-                    if(!error){
-                        Meteor.logoutOtherClients();
-                        //todo 클레이튼연결하기
-                    }else{
-                        alert(error.reason);
-                    }
-                });
+                FlowRouter.go("/login");
             }
         });
     },
-    "click buttion[name=createPrivateKey]" (evt,tmpl){
+    "click button[name=createPrivateKey]" (evt,tmpl){
         let accounts = caver.klay.accounts.create();
         tmpl.privateKey.set(accounts.privateKey);
         tmpl.klaytnAddress = accounts.address;
@@ -48,7 +42,7 @@ Template.signin.events({
         console.log(tmpl)
     }    ,
     "click [name=copyPrivateKey]" (evt,tmpl){
-        tmpl.find('input[name=password]').select();
+        tmpl.find('input[name=createPrivateKey]').select();
         document.execCommand("Copy");
         alert("클립보드에 복사되었습니다.");
     },
@@ -64,6 +58,9 @@ Template.signin.onRendered(function() {
 
 
 Template.signin.onCreated(function () {
+    this.privateKey = new ReactiveVar("");
+    this.klaytnAddress = "";
+    this.mode = new ReactiveVar(""); // login | signin
 });
 
 Template.signin.onRendered(function () {

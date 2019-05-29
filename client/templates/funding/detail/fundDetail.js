@@ -47,9 +47,9 @@ Template.fundDetail.events({
         // // investModule.
         // console.log(123, investModule);
 
-        // let klayVal = parseInt(tmpl.find('input[name=investVal]').value);
-        // let stockVal = parseInt(tmpl.find('input[name=stockVal]').value);
-        // let content = Content.findOne({_id: Session.get("CurrentContentId")},{});
+        let klayVal = parseInt(tmpl.find('input[name=investVal]').value);
+        let stockVal = parseInt(tmpl.find('input[name=stockVal]').value);
+        let content = Content.findOne({_id: Session.get("CurrentContentId")},{});
 
 
         if (klayVal == "" || klayVal == 0) {
