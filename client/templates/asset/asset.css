@@ -1,0 +1,6 @@
+.asset-item.card img{
+    width: 22em;
+    height: 300px;
+    object-fit:cover;
+    background: url('https://lightwidget.com/widgets/empty-photo.jpg') no-repeat center;
+}

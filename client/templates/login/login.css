@@ -2,12 +2,14 @@
 #login .login_wrap, #signin .signin_wrap{width: 400px;min-height: 350px; margin: 0 auto; padding: 20px;background: aliceblue;}
 #login .login_wrap input, #signin .signin_wrap input{width:100%; padding: 10px;border:none;}
 #login .login_wrap .col, #signin .signin_wrap .col{ padding: 0; margin-bottom: 30px;}
-#signin .signin_wrap .col .create-key{ width: 100%;}
-#login .login_wrap .login_wrap__btns_wrap,#signin .signin_wrap .signin_wrap__btns_wrap {overflow:hidden;margin-top: 50px;}
-#login .login_wrap .login_wrap__btns_wrap button, #signin .signin_wrap__btns_wrap button{float:left;}
-#login .login_wrap .login_wrap__btns_wrap a, #signin .signin_wrap .signin_wrap__btns_wrap a{float:right;}
+#login .login_wrap .login_wrap__btns_wrap,#signin .signin_wrap .signin_wrap__btns_wrap {display:flex; margin-top: 30px;justify-content:space-between;}
+#login .login_wrap .login_wrap__btns_wrap button, #signin .signin_wrap__btns_wrap button{width: 100px;}
+#login .login_wrap .login_wrap__btns_wrap a, #signin .signin_wrap .signin_wrap__btns_wrap a{align-self: center;}
 
-#signin .private_key_wrap{position: relative;}
-#signin .private_key_wrap .fa-copy{position: absolute;right:0; z-index: 2; top: 10px;}
+#signin .private_key_wrap{display:flex;}
+#signin .private_key_wrap span{ position: relative;flex: 2 1;margin-right:10px;}
+#signin .private_key_wrap span input{padding-right: 35px; text-overflow:ellipsis;}
+#signin .private_key_wrap span .fa-copy{position: absolute;right:5px; top: 15px;color:gray; z-index: 2;}
+#signin .private_key_wrap .create-key{ width: auto;}
 
 

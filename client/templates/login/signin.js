@@ -12,7 +12,6 @@ Template.signin.helpers({
 Template.signin.events({
     "click button[name=signUp]" (evt,tmpl){
         var email    = tmpl.find('input[name=email]').value;
-        var password = tmpl.find('input[name=createPrivateKey]').value;
         var name     = tmpl.find('input[name=name]').value;
         if(!password) {
             alert("패스워드를 확인하세요");
@@ -37,13 +36,10 @@ Template.signin.events({
         let accounts = caver.klay.accounts.create();
         tmpl.privateKey.set(accounts.privateKey);
         tmpl.klaytnAddress = accounts.address;
-
-
-        console.log(tmpl)
-    }    ,
+    },
     "click [name=copyPrivateKey]" (evt,tmpl){
-        tmpl.find('input[name=createPrivateKey]').select();
-        document.execCommand("Copy");
+        tmpl.find('input[name=privateKey]').select();
+        document.execCommand("copy");
         alert("클립보드에 복사되었습니다.");
     },
     "click .goLogin" (evt,tmpl){

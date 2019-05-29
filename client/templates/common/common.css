@@ -79,3 +79,20 @@ label.static:hover{ color: inherit; }
     background-repeat: no-repeat;
     background-size: auto;
 }
+
+
+/* layout */
+#wrap{position:relative; padding-bottom:19em;}
+
+#footer{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width: 100%;
+}
+
+#footer .logo{
+    padding-top: 18px;
+    font-size: 27px;
+    color: rgba(0,0,0,0.4);
+}
