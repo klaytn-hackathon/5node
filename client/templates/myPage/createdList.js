@@ -26,9 +26,11 @@ Template.createdList.events({
     'click button[name=c-modal]' (evt,tmpl){
 
         console.log("modal id check - ", this._id);
-        Session.set("editItem",this._id);
-    },
-
+		Session.set("editItem",this._id);
+	},
+	'click .upload' (evt,tmpl){
+		Session.set("uploadItem", this._id)
+	}
 });
 
 
@@ -48,4 +50,3 @@ Template.createdList.onRendered(function () {
 Template.createdList.onDestroyed(function () {
 
 });
-
