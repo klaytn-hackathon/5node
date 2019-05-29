@@ -1,0 +1,13 @@
+#login h3, #signin h3{ margin: 10px 0 50px; font-size: 20px; }
+#login .login_wrap, #signin .signin_wrap{width: 400px;min-height: 350px; margin: 0 auto; padding: 20px;background: aliceblue;}
+#login .login_wrap input, #signin .signin_wrap input{width:100%; padding: 10px;border:none;}
+#login .login_wrap .col, #signin .signin_wrap .col{ padding: 0; margin-bottom: 30px;}
+#signin .signin_wrap .col .create-key{ width: 100%;}
+#login .login_wrap .login_wrap__btns_wrap,#signin .signin_wrap .signin_wrap__btns_wrap {overflow:hidden;margin-top: 50px;}
+#login .login_wrap .login_wrap__btns_wrap button, #signin .signin_wrap__btns_wrap button{float:left;}
+#login .login_wrap .login_wrap__btns_wrap a, #signin .signin_wrap .signin_wrap__btns_wrap a{float:right;}
+
+#signin .private_key_wrap{position: relative;}
+#signin .private_key_wrap .fa-copy{position: absolute;right:0; z-index: 2; top: 10px;}
+
+

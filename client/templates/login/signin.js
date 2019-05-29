@@ -39,12 +39,15 @@ Template.signin.events({
             }
         });
     },
-    "click input[name=createPrivateKey]" (evt,tmpl){
+    "click buttion[name=createPrivateKey]" (evt,tmpl){
         let accounts = caver.klay.accounts.create();
         tmpl.privateKey.set(accounts.privateKey);
         tmpl.klaytnAddress = accounts.address;
+
+
+        console.log(tmpl)
     }    ,
-    "click input[name=copyPrivateKey]" (evt,tmpl){
+    "click [name=copyPrivateKey]" (evt,tmpl){
         tmpl.find('input[name=password]').select();
         document.execCommand("Copy");
         alert("클립보드에 복사되었습니다.");

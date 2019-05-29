@@ -1,43 +1,20 @@
 <template name="login">
+    <div id="login">
+        <div class="login_wrap">
+            <span class="logo">SIGHT STOCK</span>
+            <h3>로그인하기</h3>
+            <div class="col">
+                <input type="text" name="loginEmail" placeholder="메일">
+            </div>
+            <div class="col">
+                <input type="text" name="loginPassword" placeholder="시크릿">
+            </div>
+            <div class="login_wrap__btns_wrap">
+                <button class="btn btn-primary" name="login">로그인</button>
+                <a href="/signin" class="goSignin">가입하기</a>
+            </div>
 
-    {{#if currentUser}}
-    <div>
-        {{currentUserName}} | <a class="KlaytnLogOutButton">Log Out▾</a>
+        </div>
     </div>
-    {{else if loggingIn}}
-    로그인중...
-    {{else}}
-    <div>
-        <a class="KlaytnLoginButton">Klaytn Sign in ▾</a>
-    </div>
-
-    {{#if signinMode}}
-    <div>
-        <p><input type="text" name="email" placeholder="메일"></p>
-        <p><input type="text" name="name" placeholder="이름"></p>
-        <p><input type="text" disabled name="password" value="{{pk}}" placeholder="비밀키">
-            <input type="button" name="createPrivateKey" value="비밀키생성">
-            <input type="button" name="copyPrivateKey" value="복사">
-        </p>
-        <p>비밀키 생성 후 안전한 곳에 저장하세요. <br/>분실하면 절대 찾을 수 없습니다.</p>
-        <p><button name="signUp">가입</button>
-            <button name="cancel">취소</button></p>
-        <p><div class="goLogin">[로그인하기]</div></p>
-    </div>
-    {{/if}}
-    {{#if loginMode}}
-    <div>
-        <p><input type="text" name="loginEmail" placeholder="메일"></p>
-        <p><input type="text" name="loginPassword" placeholder="비밀키"></p>
-        <p><button name="login">로그인</button>
-            <button name="cancel">취소</button></p>
-        <p>
-            <a href="/signin" class="goSignin">[가입하기]</a>
-        </p>
-    </div>
-    {{/if}}
-
-
-    {{/if}}
 
 </template>

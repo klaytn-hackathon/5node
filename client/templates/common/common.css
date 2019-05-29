@@ -1,3 +1,9 @@
+.logo{
+    display:block;
+    font-style: italic;
+    color: rgba(0,0,0,0.2);
+    font-size: 14px;
+}
 .nav-style {
     margin-bottom: 4em;
 }
