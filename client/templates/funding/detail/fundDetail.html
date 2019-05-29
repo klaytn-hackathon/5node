@@ -33,74 +33,56 @@
 
             <div class="group">
                 <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                    <div class="progress-bar bg-info" role="progressbar" style="width: {{fundPercent}}%;" aria-valuenow="{{fundPercent}}" aria-valuemin="0" aria-valuemax="100">{{fundPercent}}%</div>
                 </div>
-                <div class="row">
-                    <h5>{{content.investedKlay}} Klay</h5>
+
+                <div>
+                    <span class="fund-txt">{{fundPercent}} %</span>
+                    <span> 달성</span>
                 </div>
-                <div class="row">
-                    <span>현재 투자자 수 :  {{content.contentInvestorCnt}} 명</span>
+
+                <div>
+                    <span class="fund-txt">{{content.investedKlay}} Klay</span>
+                    <span> 펀딩</span>
+                </div>
+
+                <div>
+                    <span class="fund-txt">{{content.contentInvestorCnt}}</span>
+                    <span> 명 투자중</span>
                 </div>
             </div>
 
-            <div style="padding-top: 10px;">
-                <a class="btn btn-primary btn-md" style="color: white;">투 자 하 기</a>
+
+            <div class="input-group mb-3" style="padding-top: 20px;">
+
+                <div class="input-group-prepend" style="">
+                    <span class="input-group-text" id="basic-addon1">STOCK</span>
+                </div>
+                <input name="stockVal"
+                       type="text" class="form-control"
+                       value="1"
+                       placeholder=""
+                       aria-label="Username" aria-describedby="basic-addon1">
+
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">KLAY</span>
+                </div>
+                <input name="investVal"
+                       type="number" class="form-control"
+                       value="1"
+                       readonly
+                       placeholder="1 Klay = 1 주 입니다."
+                       aria-label="Username" aria-describedby="basic-addon1">
             </div>
+            <div style="width: 100%">
+                <button class="btn btn-primary btn-lg btn-block"
+                        name="investBtn"
+                        >투 자 하 기</button>
+            </div>
+
 
         </div>
         <!-- 간략소개 -->
-
-    </div>
-
-    <hr class="my-5">
-
-    <!-- 작가이미지 & 작가소개 & 작가이력 -->
-    <div class="team-section my-5">
-
-
-        <h2 class="h1-responsive font-weight-bold text-center my-5">제작자 이력소개</h2>
-        <p class="grey-text text-center w-responsive mx-auto mb-5">SIGHT-STOCK의 제자작자들은 자체 심사기준을 통해 선발된, 검증된 전문가들 입니다.</p>
-
-        <div class="row text-center text-md-left">
-
-            <div class="col-lg-12 d-md-flex justify-content-between">
-
-                <!-- 작가 이미지 -->
-                <div class="avatar mb-md-0 mb-4 mx-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" class="rounded z-depth-1" alt="Sample avatar">
-                </div>
-
-                <!-- 작가소개 -->
-                <div class="mx-4">
-                    <h4 class="font-weight-bold mb-3">대니 조</h4>
-                    <h6 class="font-weight-bold grey-text mb-3">사진 작가</h6>
-                    <p class="grey-text">카메라 엥글에 빛을 담으려고 노력하는 사진작가 대니입니다.</p>
-                    <!-- Facebook-->
-                    <a class="p-2 fa-lg fb-ic">
-                        <i class="fab fa-facebook-f"> </i>
-                    </a>
-                    <!-- Twitter -->
-                    <a class="p-2 fa-lg tw-ic">
-                        <i class="fab fa-twitter"> </i>
-                    </a>
-                    <!--Dribbble -->
-                    <a class="p-2 fa-lg dribbble-ic">
-                        <i class="fab fa-dribbble"> </i>
-                    </a>
-                </div>
-
-                <!-- 작가이력 -->
-                <div class="mx-4">
-                    <ul>
-                        <li>국제 영화제 촬영 갤러리 때상 수상</li>
-                        <li>대한민국 이미지 작가상</li>
-                        <li>CJ 엔터테이먼스 영화 수석 디렉터</li>
-                        <li>수원대 산업 디자인 학과 전공</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
 
     </div>
 
@@ -139,6 +121,46 @@
 
     <hr class="my-5">
 
+    <!-- 작가이미지 & 작가소개 & 작가이력 -->
+    <div class="team-section my-5">
+
+
+        <h2 class="h1-responsive font-weight-bold text-center my-5">제작자 이력소개</h2>
+        <p class="grey-text text-center w-responsive mx-auto mb-5">SIGHT-STOCK의 제자작자들은 자체 심사기준을 통해 선발된, 검증된 전문가들 입니다.</p>
+
+        <div class="row text-center text-md-left">
+
+            <div class="col-lg-12 d-md-flex justify-content-between">
+
+                <!-- 작가 이미지 -->
+                <div class="avatar mb-md-0 mb-4 mx-4">
+                    <img src="{{creator.creatorThumbnail}}" class="rounded z-depth-1" alt="Sample avatar">
+                </div>
+
+                <!-- 작가소개 -->
+                <div class="mx-4">
+                    <h4 class="font-weight-bold mb-3">{{creator.creatorName}}</h4>
+                    <h6 class="font-weight-bold grey-text mb-3">{{creator.job}}</h6>
+                    <p class="grey-text">{{creator.desc}}</p>
+
+                </div>
+
+                <!-- 작가이력 -->
+                <div class="mx-4">
+                    <ul class="list-group list-group-flush">
+                        {{#each creator.creatorCareerList}}
+                            {{>careerTmpl}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="my-5">
+
     <!-- 최근 제작물 3개 -->
     <div class="row">
         <section class="text-center my-5">
@@ -148,80 +170,9 @@
 
             <div class="row">
 
-                <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
-
-                    <div class="view overlay rounded z-depth-2 mb-4">
-                        <img class="img-fluid" src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" alt="Sample image">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <!-- 태그 모음 -->
-                    <div>
-                        <a href="#" class="badge badge-light">바다</a>
-                        <a href="#" class="badge badge-light">풍경</a>
-                        <a href="#" class="badge badge-light">필리</a>
-                    </div>
-
-                    <!-- Post title -->
-                    <h4 class="font-weight-bold mb-3"><strong>하늘을 나는 오리</strong></h4>
-                    <p class="dark-grey-text">상공에서 찍은 푸른 하늘을 퀄리티 높은 이미지로 담겠습니다.
-                        우리라 우러러 보는 하늘과 하늘에서 바라보는 아래의 아름다운 풍경이 눈앞에 펼쳐질 것입니다.
-                    </p>
-                    <p>at 15/07/2018</p>
-
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-md-0 mb-4">
-
-                    <div class="view overlay rounded z-depth-2 mb-4">
-                        <img class="img-fluid" src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" alt="Sample image">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <div>
-                        <a href="#" class="badge badge-light">바다</a>
-                        <a href="#" class="badge badge-light">풍경</a>
-                        <a href="#" class="badge badge-light">필리</a>
-                    </div>
-
-                    <h4 class="font-weight-bold mb-3"><strong>괌의 바닷속을 탐험</strong></h4>
-
-                    <p class="dark-grey-text">푸르른 괌의 바닷속에 수많은 생물들과 함께 합니다.
-                        바다거북, 돌고래, 수많은 물고기들을 순간의 한장에 담고자 합니다.
-                    </p>
-
-                    <p>at 13/07/2018</p>
-
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-0">
-
-                    <div class="view overlay rounded z-depth-2 mb-4">
-                        <img class="img-fluid" src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" alt="Sample image">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <div>
-                        <a href="#" class="badge badge-light">바다</a>
-                        <a href="#" class="badge badge-light">풍경</a>
-                        <a href="#" class="badge badge-light">필리</a>
-                    </div>
-
-                    <h4 class="font-weight-bold mb-3"><strong>일본의 교토의 구석구석</strong></h4>
-
-                    <p class="dark-grey-text">고유한 특색을 담고있는 교토, 조용하고 아늑하고 아기자기한 모든걸 카메라의 엥글에 담을 것입니다.
-                        우리가 그동안 지나쳐 왔던 휴식을 선사하는 이미지 모음이 될 것입니다.</p>
-
-                    <p>at 11/07/2018</p>
-
-                </div>
-
+                {{#each topThreeContentList}}
+                    {{>topThreeTmpl}}
+                {{/each}}
             </div>
 
         </section>
@@ -229,87 +180,32 @@
 
     <hr class="my-5">
 
-
-    <div>
-
-        <!-- Projects section v.3 -->
-        <section class="my-5">
-
-            <!-- Section heading -->
-            <h2 class="h1-responsive font-weight-bold text-center my-5">제작 기획 상세</h2>
-            <!-- Section description -->
-            <p class="grey-text text-center w-responsive mx-auto mb-5">해당 제작물은 아래와 같은 계획을 기반으로 진행될 것입니다.</p>
-
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-lg-5 mb-lg-0 mb-5">
-                    <!--Image-->
-                    <img src="https://mdbootstrap.com/img/Photos/Others/images/83.jpg" alt="Sample project image" class="img-fluid rounded z-depth-1">
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-lg-7">
-
-                    <!-- Grid row -->
-                    <div class="row mb-3">
-                        <div class="col-md-1 col-2">
-                            <i class="fas fa-book fa-2x cyan-text"></i>
-                        </div>
-                        <div class="col-md-11 col-10">
-                            <h5 class="font-weight-bold mb-3">Education</h5>
-                            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing. Reprehenderit maiores nam,
-                                aperiam minima elit assumenda voluptate velit.</p>
-                        </div>
-                    </div>
-                    <!-- Grid row -->
-
-                    <!-- Grid row -->
-                    <div class="row mb-3">
-                        <div class="col-md-1 col-2">
-                            <i class="fas fa-code fa-2x red-text"></i>
-                        </div>
-                        <div class="col-md-11 col-10">
-                            <h5 class="font-weight-bold mb-3">Technology</h5>
-                            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing. Reprehenderit maiores nam,
-                                aperiam minima elit assumenda voluptate velit.</p>
-                        </div>
-                    </div>
-                    <!-- Grid row -->
-
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-1 col-2">
-                            <i class="far fa-money-bill-alt fa-2x deep-purple-text"></i>
-                        </div>
-                        <div class="col-md-11 col-10">
-                            <h5 class="font-weight-bold mb-3">Finance</h5>
-                            <p class="grey-text mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing. Reprehenderit maiores
-                                nam, aperiam minima elit assumenda voluptate velit.</p>
-                        </div>
-                    </div>
-                    <!-- Grid row -->
-
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-            <hr class="my-5">
-
-
-
-        </section>
-        <!-- Projects section v.3 -->
-
-    </div>
-
 </template>
 
 
-<template name="tagTmpl">
-    <a href="#" class="badge badge-light">바다</a>
+<template name="careerTmpl">
+        <li class="list-group-item">{{career}}</li>
+
+</template>
+
+<template name="topThreeTmpl">
+    <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
+
+        <div class="view overlay rounded z-depth-2 mb-4">
+            <img class="img-fluid" src="{{contentResourceList.[0]}}" style="width:370px; height: 250px;" alt="Sample image">
+            <a>
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- 태그 모음 -->
+
+        <!-- Post title -->
+        <h4 class="font-weight-bold mb-3"><strong>{{contentName}}</strong></h4>
+        <p class="dark-grey-text">
+            {{contentDesc}}
+        </p>
+        <p>at {{dateSet prodFinishDay}}</p>
+
+    </div>
 </template>

@@ -20,7 +20,6 @@ Template.asset.onRendered(function() {
 
 
 Template.asset.onCreated(function () {
-    this.subscribe("postList");
 
 });
 

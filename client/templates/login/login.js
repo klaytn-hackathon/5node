@@ -17,7 +17,6 @@ Template.login.helpers({
 Template.login.events({
     "click button[name=login]" (evt,tmpl){
 
-        ttt = tmpl;
         var email    = tmpl.find('input[name=loginEmail]').value;
         var password = tmpl.find('input[name=loginPassword]').value;
 
@@ -30,8 +29,9 @@ Template.login.events({
                 const walletInstance = caver.klay.accounts.privateKeyToAccount(password);
                 caver.klay.accounts.wallet.add(walletInstance);
                 sessionStorage.setItem("walletInstance",JSON.stringify(walletInstance));
+                sessionStorage.setItem("userId", email);
 
-            }else{
+            } else {
                 alert(error.reason);
             }
         });

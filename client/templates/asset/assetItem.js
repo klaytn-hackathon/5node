@@ -2,7 +2,9 @@ import {Template} from "meteor/templating";
 
 
 Template.assetItem.helpers({
-
+    titleImg() {
+        return  Content.findOne({_id: Session.get("CurrentContentId")},{})
+    }
 });
 
 
