@@ -1,8 +1,6 @@
 import {Template} from "meteor/templating";
 import {provider, caver} from "../../caver";
 import {ethers} from "ethers";
-import productABI from "../../../contracts/ABI/ProductABI.json";
-import investModuleABI from "../../../contracts/ABI/BasicInvestModuleABI.json";
 // import memont from "moment";
 
 
@@ -41,17 +39,20 @@ Template.topThreeTmpl.helpers({
 //해당 투자 모듈에 투자해야한다.
 Template.fundDetail.events({
     "click button[name=investBtn]" (evt,tmpl){
-        // let provider = new ethers.providers.JsonRpcProvider('https://api.baobab.klaytn.net:8651');
-        // let investModuleAddr = "0xf78546a6fc64ef2cd9f84b71f5f0ec662c16277c";
-        // let investModule = new ethers.Contract(investModuleAddr, investModuleABI, provider);
-        // // investModule.
-        // console.log(123, investModule);
-
-        // let klayVal = parseInt(tmpl.find('input[name=investVal]').value);
-        // let stockVal = parseInt(tmpl.find('input[name=stockVal]').value);
-        // let content = Content.findOne({_id: Session.get("CurrentContentId")},{});
-
-
+        
+        let provider = new ethers.providers.JsonRpcProvider('https://api.baobab.klaytn.net:8651');
+        //사용자의 PK 삽입
+        let wallet = new ethers.Wallet("0x1dde70afec54d1616f7ea4cd8af161ac3745b1f04d022c592dacf5234bc8aed4", provider);
+        //DB상의 해당 프로덕트의 투자 모듈 가져오기 
+        let investModuleAddr = "0xf78546a6fc64ef2cd9f84b71f5f0ec662c16277c";
+        let klayVal = parseInt(tmpl.find('input[name=investVal]').value);
+        let stockVal = parseInt(tmpl.find('input[name=stockVal]').value);
+        let content = Content.findOne({_id: Session.get("CurrentContentId")},{});
+        
+        let transaction = {
+            to: investModuleAddr,
+            value: ethers.utils.parseEther(klayVal)
+        };
         if (klayVal == "" || klayVal == 0) {
             alert("투자할 클레이를 입력해 주세요");
             return;
@@ -63,7 +64,25 @@ Template.fundDetail.events({
             alert("더이상 투자를 하실 수 없습니다.");
             return;
         }
-
+        
+        // Send the transaction
+        let sendTransactionPromise = wallet.sendTransaction(transaction);
+        
+        sendTransactionPromise.then((tx) => {
+           console.log("get result : ",tx);
+        })
+        .once('receipt', (receipt) => {
+            alert(
+                'status : ', receipt.status, 'link : ', receipt.transactionHash
+            );
+        })
+        .once('error', (error) => {
+            alert(
+                'status : error / messsages : ', error.toString()
+            );
+        });
+        
+        
         let param = {
             contentId: content._id,
             investorId: sessionStorage.getItem("userId"),

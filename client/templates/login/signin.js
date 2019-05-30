@@ -1,5 +1,5 @@
 import {Template} from "meteor/templating";
-
+import {caver} from "../caver.js";
 
 Template.signin.helpers({
     pk() {
