@@ -88,6 +88,8 @@ Template.uploadProposalModal.events({
         const title = $('input[name="title"]')[0].value;
         const issuePrice = $('input[name="issuePrice"]')[0].value;
         const issueCount = $('input[name="issueCount"]')[0].value;
+        const prodCost = $('input[name="prodCost"]')[0].value;
+        const usingCost = $('input[name="usingCost"]')[0].value;
 		const description = $('textarea[name="description"]')[0].value;
 		const userId = sessionStorage.getItem("userId");
 
@@ -98,6 +100,9 @@ Template.uploadProposalModal.events({
             return;
         }
 
+        let profile = Meteor.user().profile;
+        profile.userId = userId;
+
         const param = {
 			contentStatus: '진행중',
             contentTag: hashTagList,
@@ -105,8 +110,10 @@ Template.uploadProposalModal.events({
             contentName:title,
             contentParValue: issuePrice,
             contentTotalSupply: issueCount,
+            contentProdCost: prodCost,
+            contentUsingCost: usingCost,
 			contentDesc: description,
-			contentCreator: Meteor.user().profile,
+			contentCreator: profile,
 		}
 
         Meteor.call('insertContentProposal', param ,(err,data)=>{
@@ -121,7 +128,20 @@ Template.uploadProposalModal.events({
 		location.reload();
     },
 
+    'change input[name=issuePrice]' (evt,tmpl) {
 
+        const issuePrice = $('input[name="issuePrice"]')[0].value;
+        const issueCount = $('input[name="issueCount"]')[0].value;
+
+        $('input[name="prodCost"]').val(issuePrice*issueCount);
+    },
+    'change input[name=issueCount]' (evt,tmpl) {
+
+        const issuePrice = $('input[name="issuePrice"]')[0].value;
+        const issueCount = $('input[name="issueCount"]')[0].value;
+
+        $('input[name="prodCost"]').val(issuePrice*issueCount);
+    },
 });
 
 

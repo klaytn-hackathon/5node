@@ -14,28 +14,7 @@
         </thead>
         <tbody>
 		{{#each investList}}
-        <tr>
-            <td>{{contentId}}</td>
-            <td>{{_id}}</td>
-            <td>{{contentName}}</td>
-            <td>{{parValue}}</td>
-            <td>{{shareNum}}</td>
-            <td>{{shareNum}}</td>
-			<td class="group">
-
-                {{#if checkUpload contentId score}}
-                    <input name="scoreInput" style="width: 60px;" type="number" value={{score}}>
-                {{else}}
-                    <input name="scoreInput_{{_id}}" readonly style="width: 60px;" type="number" value={{score}}>
-                {{/if}}
-
-            </td>
-            <td>
-                {{#if checkUpload contentId score}}
-                    <button name="rating" style="display: inline" type="button" class="btn btn-primary">평가하기</button>
-                {{/if}}
-            </td>
-		</tr>
+            {{>investItem}}
 		{{/each}}
         </tbody>
         <tfoot>
@@ -43,4 +22,29 @@
         </tfoot>
     </table>
 
+</template>
+
+<template name="investItem">
+
+    <tr>
+        <td>{{contentId}}</td>
+        <td>{{_id}}</td>
+        <td>{{contentName}}</td>
+        <td>{{parValue}}</td>
+        <td>{{shareNum}}</td>
+        <td class="group">
+
+            {{#if checkUpload contentId score}}
+                <input name="scoreInput_{{_id}}" min="3" max="10" style="width: 60px;" type="number" value={{score}}>
+            {{else}}
+                <input name="scoreInput_{{_id}}" min="3" max="10" readonly style="width: 60px;" type="number" value={{score}}>
+            {{/if}}
+
+        </td>
+        <td>
+            {{#if checkUpload contentId score}}
+                <button name="rating" style="display: inline" type="button" class="btn btn-primary">평가하기</button>
+            {{/if}}
+        </td>
+    </tr>
 </template>

@@ -15,9 +15,9 @@ Meteor.methods({
 
         const USAGE_FEE = 3;
 
-        proposal.contentProdCost = USAGE_FEE;
-        proposal.InvestedStock = 0;
-        proposal.InvestedKlay = 0;
+        proposal.investedStock = 0;
+        proposal.investedKlay = 0;
+        proposal.contentInvestorCnt = 0;
         proposal.purchaceModuleAddr = "";
         proposal.investModuleAddr = "";
         proposal.distributeModuleAddr = "";
