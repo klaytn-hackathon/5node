@@ -1,13 +1,6 @@
 <template name="fundItem">
 
-    <div class="card" style="width: 22em;" name="fund-card">
-        <div style="padding: 5px 10px; font-size: 14px;">
-            <img src="{{contentCreator.creatorThumbnail}}"
-                 alt="제작자 썸네일"
-                 style="width:30px; height:30px;"
-                 class="rounded-circle">
-            <span>{{contentCreator.creatorName}}</span>
-        </div>
+    <div class="card custom-card" name="fund-card">
         <img src="{{contentThumbnail}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h6 class="card-title">{{contentName}}</h6>
@@ -17,13 +10,15 @@
             </div>
             <div style="padding-top: 10px">
                 <div class="progress">
+                    <span class="progress_current" style="width:{{fundPercent investedStock contentTotalSupply}}%">{{fundPercent investedStock contentTotalSupply}}%</span>
                     <div class="progress-bar bg-info"
                          role="progressbar"
                          style="width: {{fundPercent investedStock contentTotalSupply}}%;"
                          aria-valuenow="{{fundPercent investedStock contentTotalSupply}}"
-                         aria-valuemin="0" aria-valuemax="100">{{fundPercent investedStock contentTotalSupply}}%</div>
+                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
+            {{fundPercent investedStock contentTotalSupply}}
 
         </div>
     </div>

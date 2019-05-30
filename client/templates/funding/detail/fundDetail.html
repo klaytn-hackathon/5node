@@ -8,7 +8,7 @@
         <!-- 대표이미지 -->
         <div class="col-lg-5">
             <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
-                <img class="img-fluid detailThumb"
+                <img class="img-fluid detailThumb thumbnail-img"
                      style="width:370px;
                              height:370px;
                              background-repeat: no-repeat;
@@ -39,6 +39,7 @@
 
             <div class="group">
                 <div class="progress">
+                    <span class="progress_current" style="width:{{fundPercent }}%">{{fundPercent}}%</span>
                     <div class="progress-bar bg-info" role="progressbar" style="width: {{fundPercent}}%;" aria-valuenow="{{fundPercent}}" aria-valuemin="0" aria-valuemax="100">{{fundPercent}}%</div>
                 </div>
 

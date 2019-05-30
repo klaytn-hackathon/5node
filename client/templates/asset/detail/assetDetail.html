@@ -1,6 +1,6 @@
 <template name="assetDetail">
     <!-- Section: Blog v.1 -->
-    <section class="my-5">
+    <section id="assetDetail" class="my-5">
 
         <hr class="my-5">
 
@@ -10,12 +10,12 @@
             <!-- 대표이미지 -->
             <div class="col-lg-5">
                 <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
-                    <img class="img-fluid"
+                    <img class="img-fluid thumbnail-img"
                          style="width:370px;
                                  height:300px;
                                  background-repeat: no-repeat;
                                  background-image: url({{resourceList.[0].url}});
-                                 background-size: cover">
+                                 background-size: cover"/>
 
 
                     <a>
@@ -32,8 +32,8 @@
 				<p>{{description}}</p>
 				<div>
 				<!-- TODO: Tag-dynamic -->
-				{{#each tags}}tags
-					<a href="#" class="badge badge-light">{{tag}}</a>
+				{{#each tags}}
+					<a href="#" class="badge badge-light tags">#{{tag}}</a>
 				{{/each}}
 				</div>
 				<!-- TODO: Creater, date dynamic -->
@@ -46,8 +46,8 @@
                     <span class="float-right" style="font-size: 1.5em; font-weight: bolder;">3 KLAY</span>
                 </div>
 
-                <div style="width: 100%">
-                    <button class="btn btn-primary btn-block"
+                <div style="width: 100%;">
+                    <button class="btn btn-secondary btn-block"
                             name="assetUseBtn"
                     >사 용 하 기</button>
                 </div>
@@ -72,10 +72,10 @@
 
             <div class="card-columns">
 				{{#each resourceList}}
-                <div class="card" style="width: 22em" name="asset-resource">
+                <div class="card sub-card" style="width: 22em" name="asset-resource">
 					<!--<img src="https://summer.pes.edu/wp-content/uploads/2019/02/default-2.jpg" class="card-img-top" alt="..."> -->
 					{{#if url}}
-						<img src="{{url}}" class="card-img-top" alt="...">
+						<img src="{{url}}" class="card-img-top " alt="...">
 					{{/if}}
 
 				</div>
