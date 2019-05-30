@@ -28,6 +28,7 @@ Template.login.events({
                 //todo 클레이튼연결하기
                 const walletInstance = caver.klay.accounts.privateKeyToAccount(password);
                 caver.klay.accounts.wallet.add(walletInstance);
+                sessionStorage.setItem("pk", password);
                 sessionStorage.setItem("walletInstance",JSON.stringify(walletInstance));
                 sessionStorage.setItem("userId", email);
 

@@ -1,6 +1,8 @@
 import {Template} from "meteor/templating";
 import "/imports/collections";//추가
-
+import {caver, provider} from "../../caver";
+import config from "../../../contracts/config.json"; 
+import {ethers} from "ethers";
 var getQueryString = function ( field, url ) {
 	var href = url ? url : window.location.href;
 	var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
@@ -78,6 +80,20 @@ Template.assetDetail.events({
 			alert("제작자는 자신의 작품의 사용하기 기능을 이용하실 수 없습니다.");
 			return;
 		}
+		// let pk = sessionStorage.getItem("pk");
+		// const walletInstance = caver.klay.accounts.privateKeyToAccount(pk);
+        // caver.klay.accounts.wallet.add(pk);
+		// let wallet = new ethers.Wallet(pk);
+		
+		// let amount = ethers.utils.parseEther('3.0');
+
+		// caver.klay.sendTransaction({
+		// 	type: 'VALUE_TRANSFER',
+		// 	from: caver.klay.accounts.wallet[0].address,
+		// 	to: config.BasicPurchaseModule,
+		// 	gas: '300000',
+		// 	value: caver.utils.toPeb('3', 'KLAY'),
+		// });
 
 		let param = {
 			contentId: content._id,
