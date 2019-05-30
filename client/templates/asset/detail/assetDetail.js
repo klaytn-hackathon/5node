@@ -9,6 +9,11 @@ var getQueryString = function ( field, url ) {
 };
 
 Template.assetDetail.helpers({
+	title(){
+		var id = getQueryString('id')
+		var content = Content.findOne({_id: id})
+		return content.contentName
+	},
     resourceList(){
 		var id = getQueryString('id')
 		var content = Content.findOne({_id: id})
@@ -66,7 +71,7 @@ Template.assetDetail.events({
 		let id = getQueryString('id')
 		let content = Content.findOne({_id: id});
 		// let userId = sessionStorage.getItem("userId");
-		let userId = "charles@gmail.com";
+		let userId = sessionStorage.getItem("userId");
 
 		let param = {
 			contentId: content._id,

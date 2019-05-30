@@ -19,7 +19,12 @@ Template.topnavbar.events({
         Meteor.logout();
         caver.klay.accounts.wallet.clear();
         sessionStorage.removeItem("walletInstance");
-    }
+    },
+    'click button[name=c-modal]' (evt,tmpl){
+
+        console.log("modal id check - ", this._id);
+        Session.set("editItem",this._id);
+    },
 });
 
 Template.topnavbar.onCreated(function () {

@@ -4,7 +4,7 @@ import "./publications/Content";//추가
 import './methods/Content';
 import './methods/Invest';
 import './methods/Usage';
-import './methods/User';
+import './methods/Creator';
 
 
 // sight-stock-meteor > meteor npm install faker
@@ -160,7 +160,7 @@ Meteor.startup(() => {
 
     }
 
-    if(User.find().count()==0) {
+    if(Creator.find().count()==0) {
         let userIdArr = ["charles@gmail.com", "chuck@gmail.com"];
         let creatorNameArr = ["Charles", "Chuck"];
         let creatorAvatar = ["https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg",
@@ -180,7 +180,7 @@ Meteor.startup(() => {
                 ],
                 creatorThumbnail: creatorAvatar[i%2]
             };
-            User.insert(dummyUser)
+            Creator.insert(dummyUser)
         }
 
     }

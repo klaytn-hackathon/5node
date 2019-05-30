@@ -39,8 +39,11 @@ import './myPage/usageList.js';
 /* 모달 */
 import './proposal/uploadProposalModal.html';
 import './proposal/uploadProposalModal.js';
+import './proposal/proposeCreatorModal.html';
+import './proposal/proposeCreatorModal.js';
 import './myPage/uploadProductionModal.html';
 import './myPage/uploadProductionModal.js';
+
 
 /* 로그인 */
 // import './login/KlaytnLoginButton.js'
@@ -52,4 +55,5 @@ import './login/login.js';
 import './login/signin.html';
 import './login/signin.js';
 
+/* 헤더 */
 import './common/topnavbar.js';

@@ -3,8 +3,8 @@ import {Template} from "meteor/templating";
 
 Template.createdList.helpers({
     createdList(){
-        // let creatorId = sessionStorage.getItem("userId");
-        let creatorId = "charles@gmail.com";
+        let creatorId = sessionStorage.getItem("userId");
+        // let creatorId = "charles@gmail.com";
 
         return Content.find({"contentCreator.userId": creatorId},{});
     },

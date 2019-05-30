@@ -1,0 +1,74 @@
+<template name="proposeCreatorModal">
+    <div class="modal fade" id="proposeCreatorModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="proposalForm" name="proposal">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">기획물 업로드 </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered">
+                            <colgroup>
+                                <col/>
+                                <col/>
+                                <col/>
+                                <col/>
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th scope="col">직업</th>
+                                <td colspan="3">
+                                    <input type="text" name="job" class="form-control" placeholder="직업을 입력하시오."/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>자기소개</th>
+                                <td colspan="3">
+                                    <textarea name="desc"
+                                              class="form-control"
+                                              aria-label="With textarea"
+                                              placeholder="간략한 자기소개를 입력하시오."></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="col">썸네일</th>
+                                <td colspan="3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="thumbnail" data-proposal="thumbnail" />
+                                        <label class="custom-file-label" for="thumbnail">파일선택</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>경력사항</th>
+                                <td colspan="3">
+                                    <div>
+                                        {{#if career}}
+                                            <ul>
+                                            {{#each value in career.careerList}}
+                                                <li>{{value}}</li>
+                                            {{/each}}
+                                            </ul>
+                                        {{/if}}
+                                    </div>
+
+                                    <input name="career" type="text" class="form-control" placeholder="경력사항을 추가하세요."/>
+                                    <button name="careerBtn" style="width: 100%" class="btn btn-primary" type="button">경력 추가</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button name="closeBtn" type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                        <button name="submitBtn" type="button" class="btn btn-primary" data-upload="saveBtn">저장</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

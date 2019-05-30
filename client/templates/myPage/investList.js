@@ -3,8 +3,8 @@ import {Template} from "meteor/templating";
 
 Template.investList.helpers({
 	investList(){
-		// let userId = sessionStorage.getItem("userId");
-		let userId = "charles@gmail.com";
+		let userId = sessionStorage.getItem("userId");
+		// let userId = "charles@gmail.com";
 
 		return Invest.find({investorId:userId})
 	},
