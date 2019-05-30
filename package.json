@@ -8,8 +8,10 @@
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
-    "@babel/runtime": "^7.3.4",
-    "caver-js": "^0.8.3-1",
+    "@babel/runtime": "^7.4.5",
+    "bignumber.js": "^9.0.0",
+    "caver-js": "^0.8.3",
+    "ethers": "^4.0.28",
     "faker": "^4.1.0",
     "meteor-node-stubs": "^0.4.1"
   },
