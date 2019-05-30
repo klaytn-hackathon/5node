@@ -4,6 +4,7 @@ import {ethers} from "ethers";
 import {BigNumber} from "bignumber.js";
 import regigstryABI from "../../contracts/ABI/SigStockRegistryABI.json";
 import config from "../../contracts/config.json";
+import {Meteor} from "meteor/meteor";
 const inputElem = '<input type="text" class="form-control" placeholder=""/>';
 const inputArr = [Spacebars.SafeString(inputElem)];
 let hashTagCount = 1;
@@ -90,6 +91,12 @@ Template.uploadProposalModal.events({
 		const description = $('textarea[name="description"]')[0].value;
 		const userId = sessionStorage.getItem("userId");
 
+        // let creator = Meteor.users.findOne(Meteor.userId());
+
+        if (!Meteor.user().profile.job) {
+            alert("제작자 신청을 하셔야 합니다.");
+            return;
+        }
 
         const param = {
 			contentStatus: '진행중',
@@ -99,9 +106,7 @@ Template.uploadProposalModal.events({
             contentParValue: issuePrice,
             contentTotalSupply: issueCount,
 			contentDesc: description,
-			contentCreator:{
-				userId: userId
-			},
+			contentCreator: Meteor.user().profile,
 		}
 
         Meteor.call('insertContentProposal', param ,(err,data)=>{

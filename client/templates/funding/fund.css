@@ -4,6 +4,6 @@
     font-weight: bold;
 }
 
-.fund-txt + span {
-    vertical-align: middle;
+.txt-center {
+    text-align: center;
 }

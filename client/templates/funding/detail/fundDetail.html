@@ -43,20 +43,23 @@
                     <div class="progress-bar bg-info" role="progressbar" style="width: {{fundPercent}}%;" aria-valuenow="{{fundPercent}}" aria-valuemin="0" aria-valuemax="100">{{fundPercent}}%</div>
                 </div>
 
-                <div>
-                    <span class="fund-txt">{{fundPercent}} %</span>
-                    <span> 달성</span>
+                <div class="row col-lg-12" style="padding-top: 20px;">
+                    <div class="col-md-4">
+                        <h6 class="grey-text txt-center mb-md-0 mb-5">달성률</h6>
+                        <h5 class="fund-txt txt-center my-4">{{fundPercent}} %</h5>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6 class="grey-text txt-center mb-md-0 mb-5">펀딩 모금액</h6>
+                        <h5 class="fund-txt txt-center my-4">{{content.investedKlay}} Klay</h5>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6 class="grey-text txt-center mb-md-0 mb-5">투자자 수</h6>
+                        <h5 class="fund-txt txt-center my-4">{{content.contentInvestorCnt}}</h5>
+                    </div>
                 </div>
 
-                <div>
-                    <span class="fund-txt">{{content.investedKlay}} Klay</span>
-                    <span> 펀딩</span>
-                </div>
-
-                <div>
-                    <span class="fund-txt">{{content.contentInvestorCnt}}</span>
-                    <span> 명 투자중</span>
-                </div>
             </div>
 
 
@@ -146,21 +149,21 @@
 
                 <!-- 작가 이미지 -->
                 <div class="avatar mb-md-0 mb-4 mx-4">
-                    <img src="{{creator.creatorThumbnail}}" class="rounded z-depth-1" alt="Sample avatar">
+                    <img src="{{content.contentCreator.creatorThumbnail}}" class="rounded z-depth-1" alt="Sample avatar">
                 </div>
 
                 <!-- 작가소개 -->
                 <div class="mx-4">
-                    <h4 class="font-weight-bold mb-3">{{creator.name}}</h4>
-                    <h6 class="font-weight-bold grey-text mb-3">{{creator.job}}</h6>
-                    <p class="grey-text">{{creator.desc}}</p>
+                    <h4 class="font-weight-bold mb-3">{{content.contentCreator.name}}</h4>
+                    <h6 class="font-weight-bold grey-text mb-3">{{content.contentCreator.job}}</h6>
+                    <p class="grey-text">{{content.contentCreator.desc}}</p>
 
                 </div>
 
                 <!-- 작가이력 -->
                 <div class="mx-4">
                     <ul class="list-group list-group-flush">
-                        {{#each creator.creatorCareerList}}
+                        {{#each content.contentCreator.creatorCareerList}}
                             {{>careerTmpl}}
                         {{/each}}
                     </ul>
@@ -191,6 +194,25 @@
     </div>
 
     <hr class="my-5">
+
+    <!-- 기획 상세내용 -->
+<!--    <div class="row">-->
+        <section class="text-center my-5">
+
+            <h2 class="h1-responsive font-weight-bold my-5">기획 상세내용</h2>
+            <p class="dark-grey-text w-responsive mx-auto mb-5">해당 프로젝트를 어떻게 진행해 갈것이며, 각각의 일정에 맞춘 기대 작품을 설명합니다.</p>
+
+            <div class="row">
+
+                <p class="dark-grey-text w-responsive mx-auto mb-5">( 기능 구현 생략 )</p>
+
+            </div>
+
+        </section>
+<!--    </div>-->
+
+    <hr class="my-5">
+
 
 </template>
 

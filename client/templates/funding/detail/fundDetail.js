@@ -14,12 +14,6 @@ Template.fundDetail.helpers({
 
         return isNaN(percent) ? 0 : percent;
     },
-    creator() {
-        let id = Session.get("CurrentContentId");
-        let creatorId = Content.findOne({_id: id},{}).contentCreator.userId;
-
-        return User.findOne({userId: creatorId})
-    },
     topThreeContentList() {
         let id = Session.get("CurrentContentId");
         let creatorId = Content.findOne({_id: id},{}).contentCreator.userId;
