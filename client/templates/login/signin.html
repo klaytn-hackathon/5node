@@ -4,25 +4,25 @@
             <span class="logo">SIGHT STOCK</span>
             <h3>가입하기</h3>
             <div class="col">
-                <input type="text" name="loginEmail" placeholder="메일">
+                <input type="text" name="email" placeholder="메일">
             </div>
             <div class="col">
                 <input type="text" name="name" placeholder="이름">
             </div>
             <div class="col">
-                <div class="private_key_wrap">
-                    <input type="text" name="createPrivateKey" value="{{pk}}" placeholder="비밀키" disabled/>
-                    <i class="fa fa-copy" name="copyPrivateKey"></i>
+                <div class="private_key_wrap" title="비밀키 생성 후 안전한 곳에 저장하세요. 분실하면 절대 찾을 수 없습니다.">
+                    <span>
+                         <input type="text" name="privateKey" value="{{pk}}" placeholder="비밀키" />
+                        <i class="fa fa-copy" name="copyPrivateKey"></i>
+                    </span>
+                    <button class="btn create-key btn-secondary" type="button" name="createPrivateKey">비밀키생성</button>
                 </div>
-                <button class="btn create-key btn-secondary" type="button" name="createPrivateKey">비밀키생성</button>
 
             </div>
             <div class="signin_wrap__btns_wrap">
-                <button name="signUp">가입하기</button>
+                <button name="signUp" class="btn btn-secondary">가입하기</button>
                 <a href="/login" class="goSignin">로그인하기</a>
             </div>
         </div>
-        <p><input type="text" name="email" placeholder="메일"></p>
-        <p>비밀키 생성 후 안전한 곳에 저장하세요. <br/>분실하면 절대 찾을 수 없습니다.</p>
     </div>
 </template>

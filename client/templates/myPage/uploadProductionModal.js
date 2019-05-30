@@ -31,25 +31,32 @@ Template.uploadProductionModal.events({
         }
         $('.sub-files').html(str);
     },
-    'submit form[data-production="form"]': async (e,t) => {
-        e.preventDefault();
+    'submit form[data-production="form"]': async(e,t) => {
+		e.preventDefault();
 		const thumbnail = $('#productionThumbnail')[0].files[0];
-		const thumbnailreader = new FileReader();
 		var thumbnailBinary = [];
 		var subimageBinary = [];
-		thumbnailreader.onload = await function (e){
-			thumbnailBinary.push(thumbnailreader.result)
-		};
-		await thumbnailreader.readAsDataURL(thumbnail);
-		subFileList.forEach(element => {
-			const subimagereader = new FileReader();
-			subimagereader.onload = function(e){
-				subimageBinary.push(subimagereader.result)
-			}
-			subimagereader.readAsDataURL(element)
-		});
-		console.log(thumbnailBinary)
-		console.log(subimageBinary);
+		function readFileAsync(file) {
+			return new Promise((resolve, reject) => {
+			  let reader = new FileReader();
+
+			  reader.onload = () => {
+				resolve(reader.result);
+			  };
+
+			  reader.onerror = reject;
+
+			  reader.readAsDataURL(file);
+			})
+		  }
+		thumbnailBinary = await readFileAsync(thumbnail)
+		for (var i =0; i < subFileList.length; i++){
+			var bin = await readFileAsync(subFileList[i])
+			subimageBinary.push(bin)
+		}
+		result = {$set:{contentStatus: '완료',contentThumbnail: thumbnailBinary, contentResourceList: subimageBinary,ProdFinishDay: new Date()}}
+		Content.update({_id: Session.get("uploadItem")}, result)
+		location.reload()
 	}
 });
 

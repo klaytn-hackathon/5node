@@ -1,0 +1,67 @@
+
+.custom-card.card{
+    position: relative;
+    width: 20em;
+    height: 27em;
+    overflow: hidden;
+    border-radius: 1em;
+    background:url('http://sumeyyaarar.com/wp-content/uploads/2018/07/empty_baslik.png') no-repeat center;
+}
+.custom-card.card img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    background-color:#eee;
+
+}
+.custom-card.card .card-body{
+    position:absolute;
+    bottom: 0;
+    left:0;
+    display:none;
+    width: 100%;
+    background-color:#fff;
+}
+.custom-card.card:hover .card-body{
+    display:block;
+
+
+}
+.custom-card.card:hover img{
+    opacity: 0.6;
+}
+.progress{
+    position: relative;
+}
+/* funding */
+.progress .progress_current{
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    text-align:right;
+    padding-right:5px;
+    color:#fff;
+    background-color:rgba(0,0,0,0.6);
+}
+
+/* detail */
+.img-fluid.thumbnail-img{
+    border-radius: 10px;
+}
+
+/* */
+#assetDetail .btn-block{
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+#assetDetail .sub-card{
+    height: 15em;
+}
+
+#assetDetail .tags{
+    padding: 7px;
+    color:#007bff;
+    border-radius: 7px;
+}
