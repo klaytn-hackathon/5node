@@ -181,15 +181,19 @@ Meteor.startup(() => {
         let userInfo = { email, password, profile : { job, name , desc, creatorCareerList, creatorThumbnail, klaytnAddress} };
 
 
-        Accounts.createUser(userInfo,function(error){
-            if(!!error){
-                alert(error.reason);
-            }else{
-                alert("가입 성공");
-                $(tmpl.findAll('input')).val("");
-                FlowRouter.go("/login");
-            }
-        });
+        try {
+            Accounts.createUser(userInfo,function(error){
+                if(!!error){
+                    alert(error.reason);
+                }else{
+                    alert("가입 성공");
+                    $(tmpl.findAll('input')).val("");
+                    FlowRouter.go("/login");
+                }
+            });
+        } catch (err) {
+            console.log(err);
+        }
 
     }
 
