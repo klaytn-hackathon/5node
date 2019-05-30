@@ -183,13 +183,7 @@ Meteor.startup(() => {
 
         try {
             Accounts.createUser(userInfo,function(error){
-                if(!!error){
-                    alert(error.reason);
-                }else{
-                    alert("가입 성공");
-                    $(tmpl.findAll('input')).val("");
-                    FlowRouter.go("/login");
-                }
+                console.log(error);
             });
         } catch (err) {
             console.log(err);

@@ -99,7 +99,7 @@ Template.assetDetail.events({
 			contentId: content._id,
 			userId: userId,
 			contentName: content.contentName,
-			usedKlay: 3,
+			usedKlay: content.contentUsingCost,
 			paidAt: new Date()
 		}
 
