@@ -48,11 +48,12 @@ Template.fundDetail.events({
         let klayVal = parseInt(tmpl.find('input[name=investVal]').value);
         let stockVal = parseInt(tmpl.find('input[name=stockVal]').value);
         let content = Content.findOne({_id: Session.get("CurrentContentId")},{});
-        
+
         let transaction = {
             to: investModuleAddr,
             value: ethers.utils.parseEther(klayVal)
         };
+
         if (klayVal == "" || klayVal == 0) {
             alert("투자할 클레이를 입력해 주세요");
             return;

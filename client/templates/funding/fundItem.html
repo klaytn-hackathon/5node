@@ -1,6 +1,14 @@
 <template name="fundItem">
 
-    <div class="card custom-card" name="fund-card">
+
+    <div class="card" style="width: 22em;" name="fund-card">
+        <div style="padding: 5px 10px; font-size: 14px;">
+            <img src="{{contentCreator.creatorThumbnail}}"
+                 alt="제작자 썸네일"
+                 style="width:30px; height:30px;"
+                 class="rounded-circle">
+            <span>{{contentCreator.name}}</span>
+        </div>
         <img src="{{contentThumbnail}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h6 class="card-title">{{contentName}}</h6>

@@ -90,7 +90,8 @@ Template.uploadProposalModal.events({
 		const description = $('textarea[name="description"]')[0].value;
 		const userId = sessionStorage.getItem("userId");
 
-        const data = {
+
+        const param = {
 			contentStatus: '진행중',
             contentTag: hashTagList,
             contentThumbnail: thumbnailBinary,
@@ -98,12 +99,20 @@ Template.uploadProposalModal.events({
             contentParValue: issuePrice,
             contentTotalSupply: issueCount,
 			contentDesc: description,
-			contentCreater:{
+			contentCreator:{
 				userId: userId
-			}
+			},
 		}
-		Content.insert(data);
-		alert('업로드 되었습니다!')
+
+        Meteor.call('insertContentProposal', param ,(err,data)=>{
+            if(err){
+                console.log(err);
+                alert('서버에러 => ' + err.error);
+            }else{
+                alert('업로드 되었습니다!')
+            }
+        });
+
 		location.reload();
     },
 

@@ -73,6 +73,12 @@ Template.assetDetail.events({
 		// let userId = sessionStorage.getItem("userId");
 		let userId = sessionStorage.getItem("userId");
 
+
+		if (content.contentCreator.userId == userId) {
+			alert("제작자는 자신의 작품의 사용하기 기능을 이용하실 수 없습니다.");
+			return;
+		}
+
 		let param = {
 			contentId: content._id,
 			userId: userId,

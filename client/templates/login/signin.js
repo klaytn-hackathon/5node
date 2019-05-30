@@ -12,6 +12,7 @@ Template.signin.helpers({
 Template.signin.events({
     "click button[name=signUp]" (evt,tmpl){
         var email    = tmpl.find('input[name=email]').value;
+        var password = tmpl.find('input[name=privateKey]').value;
         var name     = tmpl.find('input[name=name]').value;
         if(!password) {
             alert("패스워드를 확인하세요");
@@ -28,7 +29,13 @@ Template.signin.events({
             }else{
                 alert("가입 성공");
                 $(tmpl.findAll('input')).val("");
-                FlowRouter.go("/login");
+
+                const walletInstance = caver.klay.accounts.privateKeyToAccount(password);
+                caver.klay.accounts.wallet.add(walletInstance);
+                sessionStorage.setItem("walletInstance",JSON.stringify(walletInstance));
+                sessionStorage.setItem("userId", email);
+
+                FlowRouter.go("/asset");
             }
         });
     },

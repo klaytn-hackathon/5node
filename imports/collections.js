@@ -5,7 +5,7 @@ OnlyMini = new Mongo.Collection(null);
 Content = new Mongo.Collection("Content");
 
 // 사용자 (일반 사용자, 제작자)
-Creator = new Mongo.Collection("Creator");
+// Creator = new Mongo.Collection("Creator");
 // User = new Mongo.Collection("users");
 
 // 투자내역, 사용내역

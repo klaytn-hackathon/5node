@@ -21,14 +21,16 @@
 
                 {{#if currentUser}}
                 <!-- user 로그인했을대 -->
-                    <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#proposeCreatorModal">
-                        제작자 신청
-                    </a>
+                    {{#if isCreator}}
+                        <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#proposeCreatorModal">
+                            제작자 신청
+                        </a>
+                    {{/if}}
 
                     <div>
                         <div class="dropdown">
                             <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                계정 {{currentUserName}}
+                                {{currentUserName}}
                             </span>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="nav-item nav-link {{isActiveRoute regex='widgets'}}" href="{{pathFor 'mypage'}}">마이페이지</a>

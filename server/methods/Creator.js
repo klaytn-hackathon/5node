@@ -17,7 +17,5 @@ Meteor.methods({
 
 
         return Meteor.users.update(Meteor.userId(), {$set: {profile: param}});
-
-        // return Creator.insert(param);
     },
 });

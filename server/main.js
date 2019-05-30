@@ -2,9 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import "/imports/collections";//추가
 import "./publications/Content";//추가
 import './methods/Content';
+import './methods/Creator';
 import './methods/Invest';
 import './methods/Usage';
-import './methods/Creator';
 
 
 // sight-stock-meteor > meteor npm install faker
@@ -68,17 +68,18 @@ Meteor.startup(() => {
                 ,contentResourceList:shuffle(contentResourceUrlArr)
                 ,contentId:""
                 ,contentCreator: {
-                    userId: "charles@gmail.com",
+                    userId: "chuck@gmail.com",
                     job: "사진작가",
                     desc: "빛을 담으려고 노력하는 사진작가 입니다.",
-                    creatorName: 'Charles',
+                    name: 'Chuck',
                     creatorCareerList: [
                         {career: "세계 영화제 독립영화 연출상 수상", at: faker.date.between('2019-10-30', '2019-12-25')},
                         {career: "세계 사진 페스티벌 금상 수상", at: faker.date.between('2019-10-30', '2019-12-25')},
                         {career: "이재진 광고 기획 회사에서 3년 근무", at: faker.date.between('2019-10-30', '2019-12-25')},
                         {career: "카피라이터 글로벌 콘테스트 은상 수상", at: faker.date.between('2019-10-30', '2019-12-25')}
                     ],
-                    creatorThumbnail: "https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
+                    creatorThumbnail: "https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg",
+                    klaytnAddress: "0x4Ab3cC00872F9Ec8142B02f5893834393eA1020B"
                 }
                 ,contentTag:faker.fake([
 					{
@@ -160,28 +161,35 @@ Meteor.startup(() => {
 
     }
 
-    if(Creator.find().count()==0) {
-        let userIdArr = ["charles@gmail.com", "chuck@gmail.com"];
-        let creatorNameArr = ["Charles", "Chuck"];
-        let creatorAvatar = ["https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg",
-            "https://s3.amazonaws.com/uifaces/faces/twitter/ooomz/128.jpg"];
+    if(Meteor.users.find().count()==0) {
 
-        for (let i=0; i<2; i++) {
-            let dummyUser = {
-                userId: userIdArr[i%2],
-                job: "사진작가",
-                desc: faker.random.arrayElement(["빛을 담으려고 노력하는 사진작가 입니다.","유일한 작품을 만들어 냅니다."]),
-                creatorName: creatorNameArr[i%2],
-                creatorCareerList: [
-                    {career: "세계 영화제 독립영화 연출상 수상", at: faker.date.between('2019-10-30', '2019-12-25')},
-                    {career: "세계 사진 페스티벌 금상 수상", at: faker.date.between('2019-10-30', '2019-12-25')},
-                    {career: "이재진 광고 기획 회사에서 3년 근무", at: faker.date.between('2019-10-30', '2019-12-25')},
-                    {career: "카피라이터 글로벌 콘테스트 은상 수상", at: faker.date.between('2019-10-30', '2019-12-25')}
+        let email = "chuck@gmail.com";
+        let password = "0xefbe469ae09b15bbe22823d66200d93771632e7914584bd0f067697cf02eaeae";
+
+        let job = "사진작가",
+            desc = faker.random.arrayElement(["빛을 담으려고 노력하는 사진작가 입니다.","유일한 작품을 만들어 냅니다."]),
+            name = "Chuck",
+            creatorCareerList = [
+                {career: "세계 영화제 독립영화 연출상 수상", at: faker.date.between('2019-10-30', '2019-12-25')},
+                {career: "세계 사진 페스티벌 금상 수상", at: faker.date.between('2019-10-30', '2019-12-25')},
+                {career: "이재진 광고 기획 회사에서 3년 근무", at: faker.date.between('2019-10-30', '2019-12-25')},
+                {career: "카피라이터 글로벌 콘테스트 은상 수상", at: faker.date.between('2019-10-30', '2019-12-25')}
                 ],
-                creatorThumbnail: creatorAvatar[i%2]
-            };
-            Creator.insert(dummyUser)
-        }
+            creatorThumbnail = "https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg",
+            klaytnAddress = "0x39bf8A6ca150d9858D2BfE67DA37440Fb0d1F02b";
+
+        let userInfo = { email, password, profile : { job, name , desc, creatorCareerList, creatorThumbnail, klaytnAddress} };
+
+
+        Accounts.createUser(userInfo,function(error){
+            if(!!error){
+                alert(error.reason);
+            }else{
+                alert("가입 성공");
+                $(tmpl.findAll('input')).val("");
+                FlowRouter.go("/login");
+            }
+        });
 
     }
 
@@ -191,21 +199,21 @@ Meteor.startup(() => {
     }
 
     if(Invest.find().count()==0) {
-		var test = Content.find({}).fetch()
-		for(var i = 0; i < 12; i++){
-			let dummyInvest={
-				contentId: test[i]._id,
-                investorId: faker.random.arrayElement(["charles@gmail.com", "chuck@gmail.com", "joe@gmail.com", "pai@gmail.com"]),
-				investorWalletAddr: faker.random.arrayElement(["AAA", "BBB", "CCC", "DDD"]),
-				contentName: test[i].contentName,
-				parValue: test[i].contentParValue,
-                klayVal: 20,
-				shareNum: faker.random.number(10),
-                sharePer: 2,
-				score: test[i].contentScore
-			}
-			Invest.insert(dummyInvest)
-		}
+		// var test = Content.find({}).fetch()
+		// for(var i = 0; i < 12; i++){
+		// 	let dummyInvest={
+		// 		contentId: test[i]._id,
+        //         investorId: faker.random.arrayElement(["charles@gmail.com", "chuck@gmail.com", "joe@gmail.com", "pai@gmail.com"]),
+		// 		investorWalletAddr: faker.random.arrayElement(["AAA", "BBB", "CCC", "DDD"]),
+		// 		contentName: test[i].contentName,
+		// 		parValue: test[i].contentParValue,
+        //         klayVal: 20,
+		// 		shareNum: faker.random.number(10),
+        //         sharePer: 2,
+		// 		score: test[i].contentScore
+		// 	}
+		// 	Invest.insert(dummyInvest)
+		// }
     }
 
 

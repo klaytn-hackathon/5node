@@ -1,11 +1,16 @@
 import {Template} from "meteor/templating";
 import "/imports/collections";//추가
 import '../login/login.js';
+import {caver} from "../caver.js";
+
 
 
 Template.topnavbar.helpers({
     currentUserName(){
         return Meteor.user().profile.name;
+    },
+    isCreator(){
+        return !Meteor.user().profile.job ? true : false;
     }
 });
 
@@ -19,6 +24,8 @@ Template.topnavbar.events({
         Meteor.logout();
         caver.klay.accounts.wallet.clear();
         sessionStorage.removeItem("walletInstance");
+
+        FlowRouter.go("/");
     },
     'click button[name=c-modal]' (evt,tmpl){
 

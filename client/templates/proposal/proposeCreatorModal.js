@@ -9,10 +9,13 @@ Template.proposeCreatorModal.helpers({
 
 
 Template.proposeCreatorModal.events({
-    "click button[name=submitBtn]" (evt,tmpl){
+    "click button[name=submitBtn]" : async function(evt,tmpl){
         let job = tmpl.find('input[name=job]').value;
         let desc = tmpl.find('textarea[name=desc]').value;
         let careerList = OnlyMini.findOne({key: "career"}).careerList;
+
+        let thumbnail = $('#userThumbnail')[0].files[0];
+
 
         if (!job) {
             alert("직업을 입력하세요.");
@@ -27,12 +30,18 @@ Template.proposeCreatorModal.events({
             return;
         }
 
+        const thumbnailBinary = await readFileAsync(thumbnail);
+
         let param = {
             job: job,
             desc: desc,
             careerList: careerList,
-            creatorName: Meteor.user().profile.name
+            name: Meteor.user().profile.name,
+            creatorThumbnail: thumbnailBinary,
+            klaytnAddress: Meteor.user().profile.klaytnAddress
         }
+
+        console.log();
 
 
         Meteor.call("addCreator", param ,(err,data)=> {
@@ -64,7 +73,7 @@ Template.proposeCreatorModal.events({
             OnlyMini.update({key: "career"},{$set: set})
         }
 
-        tmpl.find('input[name=career]').text("");
+        $('input[name=career]').val("").focus();
 
     }
 
@@ -82,3 +91,17 @@ Template.proposeCreatorModal.onRendered(function () {
 Template.proposeCreatorModal.onDestroyed(function () {
 
 });
+
+function readFileAsync(file) {
+    return new Promise((resolve, reject) => {
+        let reader = new FileReader();
+
+        reader.onload = () => {
+            resolve(reader.result);
+        };
+
+        reader.onerror = reject;
+
+        reader.readAsDataURL(file);
+    })
+}

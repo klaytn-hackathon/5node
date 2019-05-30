@@ -12,6 +12,8 @@
             </th>
             <th class="th-sm">결제일
             </th>
+            <th class="th-sm">
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +24,11 @@
                 <td>{{contentName}}</td>
                 <td>{{usedKlay}}</td>
                 <td>{{prodFinishAt paidAt}}</td>
+                <td>
+                    <button name="downloadBtn" type="button" class="btn btn-secondary">
+                        다운로드
+                    </button>
+                </td>
             </tr>
         {{/each}}
 

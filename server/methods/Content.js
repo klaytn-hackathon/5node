@@ -8,5 +8,21 @@ Meteor.methods({
 
         return Content.findOne({_id: content_id});
     },
+    insertContentProposal(proposal) {
+        if (!proposal) {
+            throw new Meteor.Error("업로드할 데이터가 없습니다.");
+        }
+
+        const USAGE_FEE = 3;
+
+        proposal.contentProdCost = USAGE_FEE;
+        proposal.InvestedStock = 0;
+        proposal.InvestedKlay = 0;
+        proposal.purchaceModuleAddr = "";
+        proposal.investModuleAddr = "";
+        proposal.distributeModuleAddr = "";
+
+        return Content.insert(proposal)
+    }
 });
 
