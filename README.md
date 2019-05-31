@@ -27,7 +27,7 @@ Video Example(Youtube):
 
 demo video : https://youtu.be/oj9kQgsGC8U
 
-klaytn IDE video : https://youtu.be/dneDGYjaqsc
+klaytn IDE video : https://youtu.be/r93qYvXqGCo
  
  
 model
