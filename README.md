@@ -2,7 +2,7 @@ SIGHT STOCK(Klaytn Hackathon)
 ===
 ### Proeject Summary
 
-author TEAM 5NODE
+## TEAM 5NODE
 
 
 Deployed Contract Address
