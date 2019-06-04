@@ -29,6 +29,7 @@ demo video : https://youtu.be/oj9kQgsGC8U
 
 klaytn IDE video : https://youtu.be/r93qYvXqGCo
  
+FInal Paper: https://github.com/klaytn-hackathon/5node/files/3252496/team5node.finalPaper.EN.pdf
  
 model
 -----
