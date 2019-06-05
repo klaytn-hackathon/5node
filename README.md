@@ -27,8 +27,13 @@ Video Example(Youtube):
 
 demo video : https://youtu.be/oj9kQgsGC8U
 
+demo video[EN] : https://drive.google.com/file/d/1v9zmn2MbF83-TYHdrILOyXr4SSGwAJy9/view?usp=sharing
+
 klaytn IDE video : https://youtu.be/r93qYvXqGCo
- 
+
+
+
+
  
 FInal Paper: https://github.com/klaytn-hackathon/5node/files/3252496/team5node.finalPaper.EN.pdf
  
